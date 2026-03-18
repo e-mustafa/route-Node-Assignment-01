@@ -280,4 +280,3 @@ const answer5 = `
          const x = "10" - 4 // 6 convert string to a number and Calculate them
 `;
 console.log(answer5);
-
