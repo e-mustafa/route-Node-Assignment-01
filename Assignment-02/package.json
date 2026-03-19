@@ -1,0 +1,24 @@
+{
+  "name": "assignments",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/e-mustafa/route-Node-Assignments.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/e-mustafa/route-Node-Assignments/issues"
+  },
+  "homepage": "https://github.com/e-mustafa/route-Node-Assignments#readme",
+  "devDependencies": {
+    "@types/node": "^25.5.0"
+  }
+}
