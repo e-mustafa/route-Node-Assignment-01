@@ -3,10 +3,17 @@ import express from 'express';
 import { connectDB, createDB } from './helper-functions.js';
 
 const PORT = 3000;
-
 const app = express();
-
-app.use(express.json());
+app.use(
+	express.json({
+		// limit: '10mb',
+		// inflate: true,
+		// reviver: null,
+		// strict: true,
+		// type: 'application/json',
+		// verify: undefined,
+	}),
+);
 
 // Part 1: ERD Diagram (1 Grade)
 
@@ -15,14 +22,25 @@ app.use(express.json());
 // Part2: Design a schema (Mapping) for the following ERD. (Use any design tool you want)
 // (1 Grade)
 
-// 👈🏻👈🏻👈🏻👈🏻 <-- Assignment-5-mapping.png
+//! 👈🏻👈🏻👈🏻👈🏻 <-- Assignment-5-mapping.png
 // or 🔗🔗🔗🔗 https://drive.google.com/file/d/1ZwdarqWoDuD3fof44zaZW1O7L4xO_aan/view?usp=sharing
+
+//! 👈🏻👈🏻👈🏻👈🏻 <-- postman collection
+// https://documenter.getpostman.com/view/49016393/2sBXqMGyhr
 
 const dbName = 'assignment_5_retail_store_mustafa_ahmed';
 
 // Part 3: (Using Node.js and MySQL) Answer the Questions below based on the given Scenario
 // The small retail store needs a database to manage information about its products, suppliers, and sales.
 // Database Requirements
+
+const connection = await connectDB();
+// create database if not exists
+await createDB(connection, dbName).then(() => {
+	app.listen(PORT, () => {
+		console.log(`🚀 Server is running on port ${PORT} and DB is ready!`);
+	});
+});
 
 // 1. Products Table:
 // o ProductID: Unique identifier for each product (integer, primary key, auto-increment).
@@ -42,241 +60,397 @@ const dbName = 'assignment_5_retail_store_mustafa_ahmed';
 // o QuantitySold: Quantity of the product sold (integer).
 // o SaleDate: Date of sale (date).
 
-async function createDBTables(connection) {
-	// create Suppliers tables
-	await connection.query(
-		`CREATE TABLE IF NOT EXISTS Suppliers (
+// (Using Node.js and MySQL) generate queries that perform the following tasks (8 Grades):
+// 1- Create the required tables for the retail store database based on the tables structure and relationships. (0.5 Grade)
+app.post('/create-tables', async (req, res) => {
+	try {
+		// create Suppliers tables
+		const querySuppliers = `
+			CREATE TABLE IF NOT EXISTS Suppliers (
 				id INT PRIMARY KEY AUTO_INCREMENT,
 				name VARCHAR(100) NOT NULL,
 				contact_no INT
-			);`,
-	);
-	console.log('✔ Suppliers table created successfully');
+			);
+		`;
 
-	// create products table
-	await connection.query(
-		`CREATE TABLE IF NOT EXISTS Products (
+		await connection.execute(querySuppliers).catch((error) => {
+			return res.status(500).json({ success: false, message: 'Failed to create Suppliers table', error });
+		});
+
+		// create products table
+		const queryProducts = `
+			CREATE TABLE IF NOT EXISTS Products (
 				id INT PRIMARY KEY AUTO_INCREMENT,
 				name varchar(200) NOT NULL,
 				price decimal(10, 2) NOT NULL,
 				quantity INT,
 				supplier_id INT,
 				FOREIGN KEY(supplier_id) REFERENCES Suppliers(id) ON DELETE CASCADE ON UPDATE CASCADE
-			);`,
-	);
-	console.log('✔ products table created successfully');
+			);`;
 
-	// create sales table
-	await connection.query(
-		`CREATE TABLE IF NOT EXISTS Sales (
+		await connection.execute(queryProducts).catch((error) => {
+			return res.status(500).json({ success: false, message: 'Failed to create products table', error });
+		});
+
+		// create sales table
+		const querySales = `
+			CREATE TABLE IF NOT EXISTS Sales (
 				id INT PRIMARY KEY AUTO_INCREMENT,
 				quantity INT,
 				sale_date DATE,
-				
 				product_id INT,
 				FOREIGN KEY(product_id) REFERENCES Products(id) ON DELETE CASCADE ON UPDATE CASCADE
-			)`,
-	);
-	console.log('✔ sales table created successfully');
-}
+			)`;
 
-async function setupDatabase() {
-	const connection = await connectDB();
+		await connection.execute(querySales).catch((error) => {
+			return res.status(500).json({ success: false, message: 'Failed to create sales table', error });
+		});
 
-	try {
-		// create database if not exists
-		await createDB(connection, dbName);
-
-		// create tables
-		await createDBTables(connection);
+		return res.status(201).json({ success: true, message: '✔ Tables created successfully' });
 	} catch (error) {
-		console.error('❌ Error setting up database:', error);
-	} finally {
-		connection.end();
+		return res.status(500).json({ success: false, message: error.message || 'Failed to create tables' });
 	}
-}
+});
 
-// (Using Node.js and MySQL) generate queries that perform the following tasks (8 Grades):
-// 1- Create the required tables for the retail store database based on the tables structure and relationships. (0.5 Grade)
-async function executeQueries() {
-	const connection = await connectDB();
+// 2- Add a column “Category” to the Products table. (0.5 Grade)
+app.post('/add-category-column', async (req, res) => {
 	try {
-		// create database if not exists
-		await createDB(connection, dbName);
+		const query = `
+			ALTER TABLE products
+				ADD COLUMN category VARCHAR(100)
+		`;
+		await connection.execute(query);
 
-		// 2- Add a column “Category” to the Products table. (0.5 Grade)
-		await connection.query(
-			`ALTER TABLE products 
-			ADD COLUMN category VARCHAR(100)`,
-		);
-		console.log('✔ Category column added successfully');
+		return res.status(200).json({ success: true, message: 'Category column added successfully' });
+	} catch (error) {
+		console.error('❌ Error adding Category column:', error);
+		return res.status(500).json({ success: false, message: 'Failed to add Category column' });
+	}
+});
 
-		// 3- Remove the “Category” column from Products. (0.5 Grade)
-		await connection.query(
-			`ALTER TABLE products 
-			DROP COLUMN category`,
-		);
-		console.log('✔ Category column removed successfully');
+// 3- Remove the “Category” column from Products. (0.5 Grade)
+app.post('/remove-category-column', async (req, res) => {
+	try {
+		const query = `
+			ALTER TABLE products 
+				DROP COLUMN category
+		`;
+		await connection.execute(query);
 
-		// 4- Change “ContactNumber” column in Suppliers to VARCHAR (15). (0.5 Grade)
-		await connection.query(
-			`ALTER TABLE suppliers
-			MODIFY contact_no VARCHAR(15)`,
-		);
-		console.log('✔ ContactNumber column modified successfully');
+		return res.status(200).json({ success: true, message: 'Category column removed successfully' });
+	} catch (error) {
+		console.error('❌ Error removing Category column:', error);
+		return res.status(500).json({ success: false, message: 'Failed to remove Category column' });
+	}
+});
 
-		// 5- Add a NOT NULL constraint to ProductName. (0.5 Grade)
-		await connection.query(
-			`ALTER TABLE products
-			MODIFY name VARCHAR(255) NOT NULL`,
-		);
+// 4- Change “ContactNumber” column in Suppliers to VARCHAR (15). (0.5 Grade)
+app.post('/contact-number-column', async (req, res) => {
+	try {
+		const query = `
+			ALTER TABLE suppliers
+				MODIFY contact_no VARCHAR(15)
+		`;
+		await connection.execute(query);
 
-		// 6- Perform Basic Inserts: (0.5 Grade)
-		// a. Add a supplier with the name 'FreshFoods' and contact number '01001234567'.
-		const addSupplier = await connection.query(
-			`INSERT INTO suppliers (name, contact_no) 
+		return res.status(200).json({ success: true, message: 'Contact number column modified successfully' });
+	} catch (error) {
+		console.error('❌ Error modifying Contact number column:', error);
+		return res.status(500).json({ success: false, message: 'Failed to modify Contact number column' });
+	}
+});
+
+// 5- Add a NOT NULL constraint to ProductName. (0.5 Grade)
+app.post('/product-name-column', async (req, res) => {
+	try {
+		const query = `
+			ALTER TABLE products
+			MODIFY name VARCHAR(255) NOT NULL
+		`;
+		await connection.execute(query);
+
+		return res.status(200).json({ success: true, message: 'Contact number column modified successfully' });
+	} catch (error) {
+		console.error('❌ Error modifying Contact number column:', error);
+		return res.status(500).json({ success: false, message: 'Failed to modify Contact number column' });
+	}
+});
+
+// 6- Perform Basic Inserts: (0.5 Grade)
+
+// a. Add a supplier with the name 'FreshFoods' and contact number '01001234567'.
+app.post('/add-supplier', async (req, res) => {
+	try {
+		const { name, contact_no } = req.body;
+		const query = `
+			INSERT INTO suppliers (name, contact_no) 
+				VALUES (?, ?)
+		`;
+		const [addSupplier] = await connection.execute(query, [name, contact_no]);
+
+		return res
+			.status(201)
+			.json({ success: true, message: `✔ Supplier added successfully with ID: ${addSupplier?.insertId}` });
+	} catch (error) {
+		console.error('❌ Error adding Supplier:', error);
+		return res.status(500).json({ success: false, message: 'Failed to add Supplier' });
+	}
+});
+
+// b. Insert the following three products, all provided by 'FreshFoods':
+// i. 'Milk' with a price of 15.00 and stock quantity of 50.
+// ii. 'Bread' with a price of 10.00 and stock quantity of 30.
+// iii. 'Eggs' with a price of 20.00 and stock quantity of 40.
+app.post('/add-product', async (req, res) => {
+	const { name, price, quantity, supplier_name } = req.body;
+	try {
+		const [suppliers] = await connection.execute(`SELECT id FROM suppliers WHERE name = ?`, [supplier_name]);
+		if (suppliers.length === 0) {
+			return res.status(500).json({ success: false, message: 'Supplier not found.', error });
+		}
+
+		const supplierId = suppliers[0].id;
+
+		const query = `
+			INSERT INTO products (name, price, quantity, supplier_id)
+			VALUES
+				(?, ?, ?, ?)
+		`;
+
+		const [addProduct] = await connection.execute(query, [name, price, quantity, supplierId]);
+
+		return res
+			.status(201)
+			.json({ success: true, message: `✔ Product added successfully with ID: ${addProduct?.insertId}` });
+	} catch (error) {
+		console.error('❌ Error adding Product:', error);
+		return res.status(500).json({ success: false, message: 'Failed to add Product' });
+	}
+});
+
+// c. Add a record for the sale of 2 units of 'Milk' made on '2025-05-20'.
+app.post('/add-sale', async (req, res) => {
+	const { product_name, quantity, sale_date } = req.body;
+	try {
+		const [products] = await connection.execute(`SELECT id FROM products WHERE name = ?`, [product_name]);
+		if (products.length === 0) {
+			return res.status(500).json({ success: false, message: 'Products not found.', error });
+		}
+
+		const productId = products[0]?.id;
+
+		const query = `
+			INSERT INTO sales (quantity, product_id, sale_date)
 				VALUES
-					('FreshFoods', '01001234567')
-			`,
-		);
-		console.log(`✔ Supplier added successfully with ID: ${addSupplier[0].insertId}`);
+					( ?, ?, ? )
+			`;
+		const [addSale] = await connection.execute(query, [quantity, productId, sale_date]);
 
-		// b. Insert the following three products, all provided by 'FreshFoods':
-		// i. 'Milk' with a price of 15.00 and stock quantity of 50.
-		// ii. 'Bread' with a price of 10.00 and stock quantity of 30.
-		// iii. 'Eggs' with a price of 20.00 and stock quantity of 40.
-		const addProducts = await connection.query(
-			`INSERT INTO products (name, price, quantity, supplier_id)
-			VALUES
-				('Milk', 15, 50, (SELECT id FROM suppliers WHERE suppliers.name = 'FreshFoods')),
-				('Bread', 10, 30, (SELECT id FROM suppliers WHERE suppliers.name = 'FreshFoods')),
-				('Eggs', 20, 40, (SELECT id FROM suppliers WHERE suppliers.name = 'FreshFoods'))
-			`,
-		);
-		console.log(`✔ Products added successfully with ID: ${addProducts[0].insertId}`);
+		return res.status(201).json({ success: true, message: `✔ Sale added successfully with ID: ${addSale?.insertId}` });
+	} catch (error) {
+		console.error('❌ Error Updating Product:', error);
+		return res.status(500).json({ success: false, message: 'Failed to add Sale' }, error);
+	}
+});
 
-		// c. Add a record for the sale of 2 units of 'Milk' made on '2025-05-20'.
-		const addSale = await connection.query(
-			`INSERT INTO sales (quantity, product_id, sale_date)
-			VALUES
-				(
-					2, 
-					(SELECT id FROM products WHERE products.name ='Milk') , 
-					'2025-05-20'
-				)
-			`,
-		);
-		console.log(`✔ Sale added successfully with ID: ${addSale[0].insertId}`);
+// 7- Update the price of 'Bread' to 25.00. (0.5 Grade)
+app.patch('/update-product-price', async (req, res) => {
+	const { product_name, price } = req.body;
+	try {
+		const [isExists] = await connection.execute(`SELECT * FROM products WHERE name = ?`, [product_name]);
 
-		// 7- Update the price of 'Bread' to 25.00. (0.5 Grade)
-		await connection.query(
-			`UPDATE products 
-				SET price = 25
-				WHERE name = 'Bread'
-			`,
-		);
-		console.log('✔ Price of Bread updated successfully');
+		if (!isExists?.length) {
+			return res.status(404).json({ success: false, message: 'Product not found' });
+		}
 
-		// 8- Delete the product 'Eggs'. (0.5 Grade)
-		await connection.query(
-			`DELETE from products
-			WHERE name = 'Eggs'`,
-		);
-		console.log('✔ Product "Eggs" deleted successfully');
+		const query = `UPDATE products SET price = ? WHERE id = ?`;
+		const [updateProduct] = await connection.execute(query, [price, isExists[0]?.id]);
 
-		// 9- Retrieve the total quantity sold for each product. (0.5 Grade)
-		const retrieve = await connection.query(
-			`SELECT 
-				p.name AS productName, SUM(s.quantity) AS total_quantity_sold
-				FROM products p
-			LEFT JOIN sales s ON p.id = s.product_id
-			GROUP BY p.name
-			`,
-		);
-		console.log('✔ Task 9 executed successfully!');
-		console.log('retrieve', retrieve[0]);
+		return res.status(200).json({ success: true, message: `✔ Price of "${product_name}" updated successfully` });
+	} catch (error) {
+		console.error('❌ Error Updating Product:', error);
+		return res.status(500).json({ success: false, message: 'Failed to Update Product', error });
+	}
+});
 
-		// 10-Get the product with the highest stock. (0.5 Grade)
-		const highestStock = await connection.query(
-			`SELECT * FROM products
-			WHERE quantity = (SELECT MAX(quantity) FROM Products)`,
-		);
-		console.log('highest product Stock', highestStock[0]);
+// 8- Delete the product 'Eggs'. (0.5 Grade)
+app.delete('/delete-product', async (req, res) => {
+	const { product_name } = req.body;
+	try {
+		const [isExists] = await connection.execute(`SELECT * FROM products WHERE name = ?`, [product_name]);
 
-		// 11-Find suppliers with names starting with 'F'. (0.5 Grade)
-		const suppliersWithF = await connection.query(
-			`SELECT * from suppliers
-				WHERE name LIKE 'F%'`,
-		);
+		if (!isExists?.length) {
+			return res.status(404).json({ success: false, message: 'Product not found', error });
+		}
 
-		console.log('✔ Task 11 executed successfully!');
-		console.log('Suppliers with names starting with F:', suppliersWithF[0]);
+		const query = `DELETE from products WHERE id = ?`;
 
-		// 12-Show all products that have never been sold. (0.5 Grade)
-		const productsNotSold = await connection.query(
-			`SELECT * FROM products
-				WHERE id NOT IN (SELECT DISTINCT product_id FROM sales)`,
-		);
+		const [updateProduct] = await connection.execute(query, [isExists[0]?.id]);
 
-		console.log('✔ Task 12 executed successfully!');
-		console.log('Products that have never been sold:', productsNotSold[0]);
+		return res.status(200).json({ success: true, message: `✔ Product ${product_name} deleted successfully` });
+	} catch (error) {
+		console.error('❌ Error Deleting Product:', error);
+		return res.status(500).json({ success: false, message: 'Failed to Delete Product' });
+	}
+});
 
-		// 13-Get all sales along with product name and sale date. (0.5 Grade)
-		const productsWithSales = await connection.query(
-			`select * FROM sales
-				LEFT JOIN Products on sales.product_id = products.id
-				GROUP BY products.name`,
-		);
+// 9- Retrieve the total quantity sold for each product. (0.5 Grade)
+app.get('/total-quantity-sold', async (req, res) => {
+	try {
+		const query = `
+		select 
+			p.name AS product_name, 
+			p.price ,
+			p.quantity AS available_quantity,
+			SUM(s.quantity) AS total_quantity_sold
+		From Products p
 
-		console.log('✔ Task 13 executed successfully!');
-		console.log('All sales with product names and sale dates:', productsWithSales[0]);
+		JOIN sales s ON p.id = s.product_id
+		GROUP BY p.name`;
 
-		// 14-Create a user “store_manager” and give them SELECT, INSERT, and UPDATE permissions on all tables. (0.5 Grade)
-		await connection.query(
-			`CREATE USER IF NOT EXISTS 'store_manager'@'localhost'
-			IDENTIFIED BY 'password123'`,
-		);
-		console.log('✔ User "store_manager" created successfully!');
+		const [retrieve] = await connection.execute(query);
 
-		await connection.query(
-			`GRANT
-				SELECT, INSERT, UPDATE
-			ON ${dbName}.* 
-			TO 'store_manager'@'localhost'`,
-		);
-		console.log('✔ Permissions (SELECT, INSERT, UPDATE) granted to "store_manager" successfully!');
+		return res.status(200).json({ success: true, message: `✔ The total quantity sold for each product`, data: retrieve });
+	} catch (error) {
+		console.error('❌ Error getting total quantity sold:', error);
+		return res.status(500).json({ success: false, message: 'Failed to get total quantity sold' });
+	}
+});
 
-		// 15-Revoke UPDATE permission from “store_manager”. (0.5 Grade)
-		await connection.query(
+// 10-Get the product with the highest stock. (0.5 Grade)
+app.get('/highest-product-stock', async (req, res) => {
+	try {
+		const query1 = `
+		SELECT * FROM products
+			WHERE quantity = (SELECT MAX(quantity) FROM Products)`;
+
+		// Or you can use this query to get the same result
+		const query2 = `SELECT * FROM products ORDER BY quantity DESC LIMIT 1`;
+
+		const [data] = await connection.execute(query2);
+
+		return res.status(200).json({ success: true, message: `✔ Highest product stock`, data });
+	} catch (error) {
+		console.error('❌ Error getting Highest product stock:', error);
+		return res.status(500).json({ success: false, message: 'Failed to get Highest product stock' });
+	}
+});
+
+// 11-Find suppliers with names starting with 'F'. (0.5 Grade)
+app.get('/get-suppliers-by-name', async (req, res) => {
+	const { name } = req.query;
+	try {
+		const query = `SELECT * FROM suppliers WHERE name LIKE ?`;
+
+		const [data] = await connection.execute(query, [`${name}%`]);
+
+		return res.status(200).json({ success: true, message: `✔ Suppliers starting with "${name}"`, data });
+	} catch (error) {
+		console.error('❌ Error getting Suppliers:', error);
+		return res.status(500).json({ success: false, message: 'Failed to get Suppliers' });
+	}
+});
+
+// 12-Show all products that have never been sold. (0.5 Grade)
+app.get('/products-not-sold', async (req, res) => {
+	try {
+		const query = `
+			SELECT * FROM products
+			LEFT JOIN sales ON products.id = sales.product_id
+			WHERE sales.product_id IS NULL
+			GROUP BY products.name
+		`;
+
+		const [data] = await connection.execute(query);
+
+		return res.status(200).json({ success: true, message: `✔ Products that have never been sold`, data });
+	} catch (error) {
+		console.error('❌ Error getting Products that have never been sold:', error);
+		return res.status(500).json({ success: false, message: 'Failed to get Products that have never been sold' });
+	}
+});
+
+// 13-Get all sales along with product name and sale date. (0.5 Grade)
+app.get('/products-sales', async (req, res) => {
+	try {
+		const query = `
+		SELECT
+			products.name,
+			products.price,
+			products.quantity,
+			sales.sale_date,
+			sales.quantity
+		FROM sales
+		LEFT JOIN products ON products.id = sales.product_id
+		`;
+
+		const [data] = await connection.execute(query);
+
+		return res.status(200).json({ success: true, message: `✔ Sales with product information`, data });
+	} catch (error) {
+		console.error('❌ Error getting sales:', error);
+		return res.status(500).json({ success: false, message: 'Failed to get sales' });
+	}
+});
+
+// 14-Create a user “store_manager” and give them SELECT, INSERT, and UPDATE permissions on all tables. (0.5 Grade)
+app.post('/add-user-manager', async (req, res) => {
+	const { user_name, password } = req.body;
+	try {
+		const query = `CREATE USER IF NOT EXISTS '${user_name}'@'localhost' IDENTIFIED BY '${password}'`;
+		await connection.execute(query).catch((error) => {
+			console.error('❌ User not created.', error);
+			return res.status(500).json({ success: false, message: 'User not created.', error });
+		});
+
+		const grantQuery = `GRANT SELECT, INSERT, UPDATE ON ${dbName}.* TO '${user_name}'@'localhost'`;
+		await connection.execute(grantQuery);
+
+		return res.status(201).json({
+			success: true,
+			message: `✔ Permissions (SELECT, INSERT, UPDATE) granted to ${user_name} successfully`,
+		});
+	} catch (error) {
+		console.error('❌ Error managing permissions:', error);
+		return res.status(500).json({ success: false, message: 'Failed to manage permissions', error });
+	}
+});
+
+// 15-Revoke UPDATE permission from “store_manager”. (0.5 Grade)
+app.patch('/revoke-user-manager', async (req, res) => {
+	const { user_name } = req.body;
+	try {
+		await connection.execute(
 			`REVOKE
 				UPDATE
 			ON ${dbName}.* 
-			FROM 'store_manager'@'localhost'`,
+			FROM '${user_name}'@'localhost'`,
 		);
-		console.log('✔ UPDATE permission revoked from "store_manager" successfully!');
+		return res.status(200).json({ success: true, message: `✔ UPDATE permission revoked from ${user_name} successfully` });
+	} catch (error) {
+		console.error('❌ Error managing permissions:', error);
+		return res.status(500).json({ success: false, message: 'Failed to manage permissions', error });
+	}
+});
 
-		// 16-Grant DELETE permission to “store_manager” only on the Sales table. (0.5 Grade)
-		await connection.query(
+// 16-Grant DELETE permission to “store_manager” only on the Sales table. (0.5 Grade)
+app.post('/delete-user-manager', async (req, res) => {
+	const { user_name } = req.body;
+	try {
+		await connection.execute(
 			`GRANT
 				DELETE
 			ON ${dbName}.Sales
-			TO 'store_manager'@'localhost'`,
+			TO '${user_name}'@'localhost'`,
 		);
-		console.log('✔ DELETE permission granted to "store_manager" on the Sales table successfully!');
-
-		console.log('🚀 All tasks executed successfully!');
+		return res.status(200).json({
+			success: true,
+			message: `✔ DELETE permission granted to ${user_name} on the Sales table successfully`,
+		});
 	} catch (error) {
-		console.error('❌ Error setting up database:', error);
-	} finally {
-		connection.end();
+		console.error('❌ Error managing permissions:', error);
+		return res.status(500).json({ success: false, message: 'Failed to manage permissions', error });
 	}
-}
-
-await setupDatabase();
-executeQueries();
-
-app.listen(PORT, () => {
-	console.log(`Server is running on port ${PORT}`);
 });
 
 // Bonus (2 Grades)

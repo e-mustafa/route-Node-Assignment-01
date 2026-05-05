@@ -1,0 +1,236 @@
+{
+	"info": {
+		"name": "Retail Store API - Assignment 5",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1. Database Setup",
+			"item": [
+				{
+					"name": "Create Tables",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/create-tables",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "3000",
+							"path": ["create-tables"]
+						}
+					}
+				},
+				{
+					"name": "Add Category Column",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/add-category-column",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "3000",
+							"path": ["add-category-column"]
+						}
+					}
+				},
+				{
+					"name": "Remove Category Column",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/remove-category-column",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "3000",
+							"path": ["remove-category-column"]
+						}
+					}
+				},
+				{
+					"name": "Modify Contact Number Column",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/contact-number-column",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "3000",
+							"path": ["contact-number-column"]
+						}
+					}
+				},
+				{
+					"name": "Modify Product Name (NOT NULL)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/product-name-column",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "3000",
+							"path": ["product-name-column"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "2. Data Operations",
+			"item": [
+				{
+					"name": "Add Supplier",
+					"request": {
+						"method": "POST",
+						"header": [{ "key": "Content-Type", "value": "application/json" }],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"FreshFoods\",\n  \"contact_no\": \"01001234567\"\n}"
+						},
+						"url": "http://localhost:3000/add-supplier"
+					}
+				},
+				{
+					"name": "Add Product",
+					"request": {
+						"method": "POST",
+						"header": [{ "key": "Content-Type", "value": "application/json" }],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Milk\",\n  \"price\": 15.00,\n  \"quantity\": 50,\n  \"supplier_name\": \"FreshFoods\"\n}"
+						},
+						"url": "http://localhost:3000/add-product"
+					}
+				},
+				{
+					"name": "Add Sale",
+					"request": {
+						"method": "POST",
+						"header": [{ "key": "Content-Type", "value": "application/json" }],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"product_name\": \"Milk\",\n  \"quantity\": 2,\n  \"sale_date\": \"2025-05-20\"\n}"
+						},
+						"url": "http://localhost:3000/add-sale"
+					}
+				},
+				{
+					"name": "Update Product Price",
+					"request": {
+						"method": "PATCH",
+						"header": [{ "key": "Content-Type", "value": "application/json" }],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"product_name\": \"Bread\",\n  \"price\": 25.00\n}"
+						},
+						"url": "http://localhost:3000/update-product-price"
+					}
+				},
+				{
+					"name": "Delete Product",
+					"request": {
+						"method": "DELETE",
+						"header": [{ "key": "Content-Type", "value": "application/json" }],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"product_name\": \"Eggs\"\n}"
+						},
+						"url": "http://localhost:3000/delete-product"
+					}
+				}
+			]
+		},
+		{
+			"name": "3. Queries & Reports",
+			"item": [
+				{
+					"name": "Total Quantity Sold",
+					"request": {
+						"method": "GET",
+						"url": "http://localhost:3000/total-quantity-sold"
+					}
+				},
+				{
+					"name": "Highest Product Stock",
+					"request": {
+						"method": "GET",
+						"url": "http://localhost:3000/highest-product-stock"
+					}
+				},
+				{
+					"name": "Get Suppliers by Name",
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "http://localhost:3000/get-suppliers-by-name?name=F",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "3000",
+							"path": ["get-suppliers-by-name"],
+							"query": [{ "key": "name", "value": "F" }]
+						}
+					}
+				},
+				{
+					"name": "Products Not Sold",
+					"request": {
+						"method": "GET",
+						"url": "http://localhost:3000/products-not-sold"
+					}
+				},
+				{
+					"name": "All Products Sales",
+					"request": {
+						"method": "GET",
+						"url": "http://localhost:3000/products-sales"
+					}
+				}
+			]
+		},
+		{
+			"name": "4. Permissions Management",
+			"item": [
+				{
+					"name": "Create Manager User",
+					"request": {
+						"method": "POST",
+						"header": [{ "key": "Content-Type", "value": "application/json" }],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"user_name\": \"store_manager\",\n  \"password\": \"manager_123\"\n}"
+						},
+						"url": "http://localhost:3000/add-user-manager"
+					}
+				},
+				{
+					"name": "Revoke Update Permission",
+					"request": {
+						"method": "PATCH",
+						"header": [{ "key": "Content-Type", "value": "application/json" }],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"user_name\": \"store_manager\"\n}"
+						},
+						"url": "http://localhost:3000/revoke-user-manager"
+					}
+				},
+				{
+					"name": "Grant Delete on Sales",
+					"request": {
+						"method": "POST",
+						"header": [{ "key": "Content-Type", "value": "application/json" }],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"user_name\": \"store_manager\"\n}"
+						},
+						"url": "http://localhost:3000/delete-user-manager"
+					}
+				}
+			]
+		}
+	]
+}
