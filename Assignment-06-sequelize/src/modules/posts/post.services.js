@@ -2,7 +2,6 @@ import { sequelize } from '../../DB/connection.js';
 import { CommentModel as Comment, PostModel as Post, UserModel as User } from '../../DB/models/index.js';
 import { isExistById } from '../../utils/api-utils.js';
 import catchResError from '../../utils/catch-res-error.js';
-import { Op, fn } from 'sequelize';
 
 export const addPost = async (req, res) => {
 	try {
@@ -34,12 +33,22 @@ export const addPost = async (req, res) => {
 export const deletePost = async (req, res) => {
 	try {
 		const { id } = req.params;
+		const { userId } = req.body;
+
+		// check if post exist by id
 		const post = await Post.findByPk(id);
 		if (!post) {
 			return res.status(404).json({ success: false, message: 'Post not found.' });
 		}
 
-		if (post.userId !== req.body.id) {
+		// check if user exist by userId
+		const user = await User.findByPk(userId);
+		if (!user) {
+			return res.status(404).json({ success: false, message: 'User not found.' });
+		}
+
+		// check if user is owner of post
+		if (post.userId !== userId) {
 			return res.status(403).json({ success: false, message: 'You are not authorized to delete this post.' });
 		}
 
@@ -82,5 +91,43 @@ export const getAllPosts = async (req, res) => {
 		return res.status(200).json({ success: true, message: 'Posts fetched successfully.', data });
 	} catch (error) {
 		catchResError(error, res);
+	}
+};
+
+// ***************** extra
+export const updatePost = async (req, res) => {
+	try {
+		const { id } = req.params;
+		const { title, content, userId } = req.body;
+
+		// // check if post exist and user is owner -- in one step
+		// const post = await Post.findOne({ where: { id, userId } });
+		// if (!post) {
+		// 	return res
+		// 		.status(404)
+		// 		.json({ success: false, message: 'Post not found or You are not authorized to update this post.' });
+		// }
+
+		// or 3 steps check if post exist by id
+		const post = await Post.findByPk(id);
+		if (!post) {
+			return res.status(404).json({ success: false, message: 'Post not found.' });
+		}
+
+		// check if user exist by userId
+		const user = await User.findByPk(userId);
+		if (!user) {
+			return res.status(404).json({ success: false, message: 'User not found.' });
+		}
+
+		// check if user is owner of post
+		if (post.userId !== userId) {
+			return res.status(403).json({ success: false, message: 'You are not authorized to update this post.' });
+		}
+
+		await post.update({ title, content });
+		return res.status(200).json({ success: true, message: 'Post updated successfully.' });
+	} catch (error) {
+		catchResError(error, res, true);
 	}
 };

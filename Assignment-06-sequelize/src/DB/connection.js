@@ -19,7 +19,7 @@ export const syncDB = async (options = {}) => {
 	try {
 		const { default: associations } = await import('./models/associations.js');
 		await associations();
-		await sequelize.sync({ ...options });
+		await sequelize.sync(options);
 		console.log('✔ Database synchronized successfully');
 	} catch (error) {
 		console.error('❌ Unable to connect to the database:', error);

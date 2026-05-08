@@ -114,6 +114,7 @@ export const getUserById = async (req, res) => {
 	}
 };
 
+// ***************** extra
 export const updateUser = async (req, res) => {
 	try {
 		const { id } = req.params;
@@ -144,6 +145,7 @@ export const updateUser = async (req, res) => {
 	}
 };
 
+// delete user after check if exist
 export const deleteUser = async (req, res) => {
 	try {
 		const { id } = req.params;
@@ -153,9 +155,31 @@ export const deleteUser = async (req, res) => {
 			return res.status(404).json({ success: false, message: 'User not found' });
 		}
 
+		const deleted = await isExist.destroy();
+
+		return res.status(200).json({ success: true, message: `User ${deleted.name} deleted successfully.` });
+	} catch (error) {
+		catchResError(error, res, true);
+	}
+};
+
+// or with one step -------------------------------
+export const deleteUser2 = async (req, res) => {
+	try {
+		const { id } = req.params;
+
+		// const isExist = await User.findByPk(id);
+		// if (!isExist) {
+		// 	return res.status(404).json({ success: false, message: 'User not found' });
+		// }
+
 		const deleted = await User.destroy({ where: { id } });
 
-		return res.status(200).json({ success: true, message: 'User deleted successfully.' });
+		if (!deleted) {
+			return res.status(404).json({ success: false, message: 'User not found' });
+		}
+
+		return res.status(200).json({ success: true, message: `User deleted successfully.` });
 	} catch (error) {
 		catchResError(error, res, true);
 	}

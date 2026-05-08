@@ -16,3 +16,6 @@ app.listen(PORT, () => {
 
 //! 👈🏻👈🏻👈🏻👈🏻 <-- postman collection
 // https://documenter.getpostman.com/view/49016393/2sBXqMKKzs
+
+//! 👈🏻👈🏻👈🏻👈🏻 <-- Github link
+// https://github.com/e-mustafa/route-Node-Assignments/tree/main/Assignment-06-sequelize

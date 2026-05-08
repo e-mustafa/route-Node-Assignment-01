@@ -11,6 +11,7 @@ export const routes = {
 	getById: '/:id',
 	getByEmail: '/by-email',
 
+	// ***************** extra
 	update: '/:id',
 	delete: '/:id',
 };
@@ -21,6 +22,8 @@ router.put(routes.createOrUpdate, createOrUpdateUser);
 router.get(routes.getById, getUserById);
 router.get(routes.getByEmail, getUserByEmail);
 
+
+// ***************** extra
 router.patch(routes.update, updateUser);
 router.delete(routes.delete, deleteUser);
 

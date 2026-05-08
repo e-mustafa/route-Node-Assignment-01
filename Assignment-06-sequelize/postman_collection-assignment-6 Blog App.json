@@ -1121,18 +1121,220 @@
           "request": {
             "method": "DELETE",
             "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"userId\": 1\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
             "url": {
-              "raw": "{{baseUrl}}/posts/2",
+              "raw": "{{baseUrl}}/posts/1",
               "host": [
                 "{{baseUrl}}"
               ],
               "path": [
                 "posts",
-                "2"
+                "1"
               ]
             }
           },
-          "response": []
+          "response": [
+            {
+              "name": "delete Post",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"userId\": 1\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/posts/1",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "posts",
+                    "1"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "55"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"37-eqVYYtfZzpFHjSwi/+qGeCaD3Qk\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 08 May 2026 16:26:15 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Post deleted successfully.\"\n}"
+            },
+            {
+              "name": "delete Post",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"userId\": 1\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/posts/2",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "posts",
+                    "2"
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "73"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"49-uQ8/QAFoGThtvcbX6/qsj++fqDY\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 08 May 2026 16:27:21 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": false,\n    \"message\": \"You are not authorized to delete this post.\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "update post",
+          "request": {
+            "method": "GET",
+            "header": []
+          },
+          "response": [
+            {
+              "name": "update post",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"userId\": 2,\r\n    \"title\": \"update first post title\",\r\n    \"content\": \"update update update update update  first post content first post content first post content first post content first post content first post content first post content \"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/posts/3",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "posts",
+                    "3"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "91"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"5b-v1CXFWrrtsAJyQqVg9C60fQh5Vs\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 08 May 2026 16:37:42 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": false,\n    \"message\": \"Post not found or You are not authorized to update this post.\"\n}"
+            }
+          ]
         }
       ]
     },
@@ -2281,7 +2483,114 @@
             "method": "GET",
             "header": []
           },
-          "response": []
+          "response": [
+            {
+              "name": "get comment details",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/comments/details/3",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "comments",
+                    "details",
+                    "3"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "48"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"30-IIMG0eFFOHSl1lDTdxc17KETs7E\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 08 May 2026 16:28:05 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": false,\n    \"message\": \"Comment not found.\"\n}"
+            },
+            {
+              "name": "get comment details",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/comments/details/20",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "comments",
+                    "details",
+                    "20"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "477"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"1dd-SbaliOv8PksRJvdiUcJjmtXHMCQ\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 08 May 2026 16:29:57 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"data\": {\n        \"id\": 20,\n        \"content\": \"first post content first post content first post content first post content first post content first post content first post content first post content \",\n        \"user\": {\n            \"name\": \"AHMEDUPDATED\",\n            \"id\": 7,\n            \"email\": \"ahmedupdated@gmail.com\"\n        },\n        \"post\": {\n            \"id\": 2,\n            \"title\": \"first post title\",\n            \"content\": \"first post content first post content first post content first post content first post content first post content first post content first post content \"\n        }\n    }\n}"
+            }
+          ]
         }
       ]
     }
