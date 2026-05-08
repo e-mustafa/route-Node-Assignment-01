@@ -1,0 +1,2289 @@
+{
+  "info": {
+    "_postman_id": "e4bedba4-e425-4984-a731-1684619d7224",
+    "name": "assignment-6 Blog App",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "49016393",
+    "_collection_link": "https://go.postman.co/collection/49016393-e4bedba4-e425-4984-a731-1684619d7224?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "User Signup",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"hana\",\r\n    \"email\": \"hana@gmail.com\",\r\n    \"password\":\"123456\",\r\n    \"birthdate\": \"1999-05-28\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/users/signup",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "users",
+                "signup"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "User Signup",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"name\": \"ahmed\",\r\n    \"email\": \"ahmed@gmail.com\",\r\n    \"password\":\"123456\",\r\n    \"birthdate\": \"2005-05-28\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/users/signup",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "users",
+                    "signup"
+                  ]
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "54"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"36-YMp9QY5qwdTMenKnPYMip8BrDlY\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 04 May 2026 23:44:11 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": false,\n    \"message\": \"This email already exist\"\n}"
+            },
+            {
+              "name": "User Signup",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"name\": \"Aya\",\r\n    \"email\": \"aya@gmail.com\",\r\n    \"password\":\"123456\",\r\n    \"birthdate\": \"2012-05-28\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/users/signup",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "users",
+                    "signup"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "64"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"40-o8UKVdMmrF0HM6ZnGOeInw5YDUc\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 04 May 2026 23:46:04 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": false,\n    \"message\": \"User must be at least 18 years old\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Create or update user",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"ahmed\",\r\n    \"email\": \"ahmed@gmail.com\",\r\n    \"password\":\"123456\",\r\n    \"birthdate\": \"1999-05-28\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/users/2",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "users",
+                "2"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Create or update user",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"name\": \"ahmed\",\r\n    \"email\": \"ahmed@gmail.com\",\r\n    \"password\":\"123456\",\r\n    \"birthdate\": \"1999-05-28\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/users/2",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "users",
+                    "2"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "210"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"d2-oi1+jp4HAPzLIFWYWlx0TGXkqGE\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 07 May 2026 22:27:36 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"User updated successfully\",\n    \"data\": {\n        \"name\": \"AHMED\",\n        \"isAdmin\": false,\n        \"age\": 26,\n        \"role\": \"USER\",\n        \"isVerified\": false,\n        \"email\": \"ahmed@gmail.com\",\n        \"birthdate\": \"1999-05-28T00:00:00.000Z\",\n        \"id\": \"2\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "get user by id (PK)",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/users/19",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "users",
+                "19"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "get user by id (PK)",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/users/19",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "users",
+                    "19"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "263"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"107-ch4e5YtzUZrBYbZSBJc0oThfeGQ\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 05 May 2026 00:45:11 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"data\": {\n        \"name\": \"YAZN\",\n        \"isAdmin\": false,\n        \"age\": 26,\n        \"id\": 19,\n        \"email\": \"yazn@gmail.com\",\n        \"gender\": null,\n        \"birthdate\": \"1999-05-28T00:00:00.000Z\",\n        \"isVerified\": false,\n        \"socialId\": null,\n        \"createdAt\": \"2026-05-05T00:32:02.000Z\",\n        \"updatedAt\": \"2026-05-05T00:32:02.000Z\"\n    }\n}"
+            },
+            {
+              "name": "get user by id (PK)",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/users/3",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "users",
+                    "3"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "45"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"2d-2DMP64ec18/E7TLauE4fkuXK5DM\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 05 May 2026 00:47:44 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": false,\n    \"message\": \"User not found.\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "get user email",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/users/by-email?email=ali@gmail.com",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "users",
+                "by-email"
+              ],
+              "query": [
+                {
+                  "key": "email",
+                  "value": "ali@gmail.com"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get all users",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/users",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "users"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "update user",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"ahmed\",\r\n    \r\n    \"password\":\"123456\",\r\n    \"birthdate\": \"1999-05-27\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/users/3",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "users",
+                "3"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "New Request",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"name\": \"ahmed2\",\r\n\r\n    \"password\":\"123456\",\r\n    \"birthdate\": \"1999-05-27\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/users/3",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "users",
+                    "3"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "297"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"129-YacW5wRfZeUAQ++FKPIa10mRbcs\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 07 May 2026 23:47:32 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"User updated successfully.\",\n    \"data\": {\n        \"id\": 3,\n        \"name\": \"ahmed2\",\n        \"email\": \"ahmed2@gmail.com\",\n        \"gender\": null,\n        \"birthdate\": \"1999-05-27T00:00:00.000Z\",\n        \"isVerified\": false,\n        \"socialId\": null,\n        \"createdAt\": \"2026-05-04T22:14:40.000Z\",\n        \"updatedAt\": \"2026-05-07T23:43:52.000Z\",\n        \"deletedAt\": null\n    }\n}"
+            },
+            {
+              "name": "update user",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"name\": \"ahmed2\",\r\n\r\n    \"password\":\"123456\",\r\n    \"birthdate\": \"1999-05-27\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/users/4",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "users",
+                    "4"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "44"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"2c-EAnCIFy1uGovyo/FU6KYwnjLgrc\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 07 May 2026 23:53:10 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": false,\n    \"message\": \"User not found\"\n}"
+            },
+            {
+              "name": "update user",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"name\": \"ahmed\",\r\n    \"email\": \"ahmed2@gmail.com\",\r\n    \"password\":\"123456\",\r\n    \"birthdate\": \"1999-05-27\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/users/20",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "users",
+                    "20"
+                  ]
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "54"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"36-YMp9QY5qwdTMenKnPYMip8BrDlY\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 07 May 2026 23:53:42 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": false,\n    \"message\": \"This email already exist\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "delete user",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/users/20",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "users",
+                "20"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "delete user",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/users/21",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "users",
+                    "21"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "44"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"2c-EAnCIFy1uGovyo/FU6KYwnjLgrc\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 07 May 2026 23:57:09 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": false,\n    \"message\": \"User not found\"\n}"
+            },
+            {
+              "name": "delete user",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/users/17",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "users",
+                    "17"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "55"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"37-PVsg6T02LPeMN7BbMkZMB6NmHfU\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 07 May 2026 23:58:15 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"User deleted successfully.\"\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Posts",
+      "item": [
+        {
+          "name": "get all posts details",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/posts/details",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "posts",
+                "details"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "get all posts details",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/posts/details",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "posts",
+                    "details"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "561"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"231-mht4Yl2cuf1VV+tbPbJ5TMJT8R4\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 06 May 2026 16:45:03 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Posts fetched successfully.\",\n    \"data\": [\n        {\n            \"postId\": 1,\n            \"title\": \"first post title\",\n            \"user\": {\n                \"name\": \"ALI\",\n                \"userId\": 1\n            },\n            \"comments\": [\n                {\n                    \"commentId\": 1,\n                    \"content\": \"first comment content first comment content first comment content first comment content first comment content first comment content first comment content first comment content \"\n                },\n                {\n                    \"commentId\": 2,\n                    \"content\": \"first comment content first comment content first comment content first comment content first comment content first comment content first comment content first comment content \"\n                }\n            ]\n        }\n    ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "get all posts comment count",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/posts/comment-count",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "posts",
+                "comment-count"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "get all posts comment count",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/posts/comment-count",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "posts",
+                    "comment-count"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "120"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"78-wtYzfQDx2peCA2D7AQkPjm/dPF0\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 06 May 2026 17:05:14 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Posts fetched successfully.\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"title\": \"first post title\",\n            \"comments_count\": 3\n        }\n    ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "create post",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"userId\": 2,\r\n    \"title\": \"first post title\",\r\n    \"content\": \"first post content first post content first post content first post content first post content first post content first post content first post content \"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/posts",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "posts"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "create post",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \r\n    \"title\": \"first post title\",\r\n    \"content\": \"first post content first post content first post content first post content first post content first post content first post content first post content \"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/posts",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "posts"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "56"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"38-jW6sl0JswiK9snoZ7C9GjvZtfCQ\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 06 May 2026 17:15:40 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": false,\n    \"message\": \"post.userId cannot be null\"\n}"
+            },
+            {
+              "name": "create post",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"userId\": 3,\r\n    \"title\": \"first post title\",\r\n    \"content\": \"first post content first post content first post content first post content first post content first post content first post content first post content \"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/posts",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "posts"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "58"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"3a-MAoX35wTutCN8rViK+Mw4/MJLVU\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 06 May 2026 17:15:56 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": false,\n    \"message\": \"User with id: (3) not found.\"\n}"
+            },
+            {
+              "name": "create post",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"userId\": 2,\r\n    \"title\": \"first post title\",\r\n    \"content\": \"first post content first post content first post content first post content first post content first post content first post content first post content \"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/posts",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "posts"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "518"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"206-zbtWLyQ3P1H1RB9YaPOq2hPC4Jo\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 06 May 2026 17:14:30 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Post created successfully.\",\n    \"data\": {\n        \"excerpt\": \"first post content first post content first post content first post content first post content first post content first post content first post conten...\",\n        \"id\": 2,\n        \"userId\": 2,\n        \"title\": \"first post title\",\n        \"content\": \"first post content first post content first post content first post content first post content first post content first post content first post content \",\n        \"updatedAt\": \"2026-05-06T17:14:30.786Z\",\n        \"createdAt\": \"2026-05-06T17:14:30.786Z\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "delete Post",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/posts/2",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "posts",
+                "2"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Comments",
+      "item": [
+        {
+          "name": "create comment one or bulk",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "[{\r\n    \"postId\": 2,\r\n    \"userId\": 7,\r\n    \"content\": \"first post content first post content first post content first post content first post content first post content first post content first post content \"\r\n},\r\n{\r\n    \"postId\": 2,\r\n    \"userId\": 7,\r\n    \"content\": \"first post content first post content first post content first post content first post content first post content first post content first post content \"\r\n},\r\n{\r\n    \"postId\": 2,\r\n    \"userId\": 7,\r\n    \"content\": \"first post content first post content first post content first post content first post content first post content first post content first post content \"\r\n}\r\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/comments",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "comments"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "create one comment or bulk",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "[{\r\n    \"userId\": 3,\r\n    \"postId\": 1,\r\n    \"content\": \"first comment content first comment content first comment content first comment content first comment content first comment content first comment content first comment content \"\r\n}]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/comments",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "comments"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "58"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"3a-MAoX35wTutCN8rViK+Mw4/MJLVU\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 06 May 2026 16:08:05 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": false,\n    \"message\": \"User with id: (3) not found.\"\n}"
+            },
+            {
+              "name": "create comment one or bulk",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"postId\": 3,\r\n    \"userId\": 2,\r\n    \"content\": \"first post content first post content first post content first post content first post content first post content first post content first post content \"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/comments",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "comments"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "58"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"3a-V3G/qLoClA+6H9avlmaz+/pXppM\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 06 May 2026 16:52:18 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": false,\n    \"message\": \"Post with id: (3) not found.\"\n}"
+            },
+            {
+              "name": "create comment one or bulk",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"postId\": 1,\r\n    \"userId\": 2,\r\n    \"content\": \"first post content first post content first post content first post content first post content first post content first post content first post content \"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/comments",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "comments"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "341"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"155-X9h1QHLVjDcXwrEQUOe8Ieriq2g\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 06 May 2026 16:51:45 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Comments created successfully.\",\n    \"data\": {\n        \"id\": 14,\n        \"content\": \"first post content first post content first post content first post content first post content first post content first post content first post content \",\n        \"userId\": 2,\n        \"postId\": 1,\n        \"updatedAt\": \"2026-05-06T16:51:45.176Z\",\n        \"createdAt\": \"2026-05-06T16:51:45.176Z\"\n    }\n}"
+            },
+            {
+              "name": "create comment one or bulk",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \r\n    \"userId\": 7,\r\n    \"content\": \"first post content first post content first post content first post content first post content first post content first post content first post content \"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/comments",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "comments"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "70"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"46-m5Kk7DTXi/KOt2gSkHMFROKiwNU\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 06 May 2026 17:27:44 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": false,\n    \"message\": \"Post is required, please provide postId.\"\n}"
+            },
+            {
+              "name": "create comment one or bulk",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"postId\": 2,\r\n    \r\n    \"content\": \"first post content first post content first post content first post content first post content first post content first post content first post content \"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/comments",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "comments"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "69"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"45-Wmxto++3EpIzaQgF4ybFCWRlyiw\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 06 May 2026 17:28:06 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": false,\n    \"message\": \"User is required, please provide userId\"\n}"
+            },
+            {
+              "name": "create comment one or bulk",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "[{\r\n    \"postId\": 2,\r\n    \"userId\": 7,\r\n    \"content\": \"first post content first post content first post content first post content first post content first post content first post content first post content \"\r\n},\r\n{\r\n    \"postId\": 2,\r\n    \"userId\": 7,\r\n    \"content\": \"first post content first post content first post content first post content first post content first post content first post content first post content \"\r\n},\r\n{\r\n    \"postId\": 2,\r\n    \"userId\": 7,\r\n    \"content\": \"first post content first post content first post content first post content first post content first post content first post content first post content \"\r\n}\r\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/comments",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "comments"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "893"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"37d-zDfjFJzhYzaZlYk2xERcDLCB7ig\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 06 May 2026 17:31:05 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Comments created successfully.\",\n    \"data\": [\n        {\n            \"id\": 25,\n            \"postId\": 2,\n            \"userId\": 7,\n            \"content\": \"first post content first post content first post content first post content first post content first post content first post content first post content \",\n            \"createdAt\": \"2026-05-06T17:31:05.029Z\",\n            \"updatedAt\": \"2026-05-06T17:31:05.029Z\"\n        },\n        {\n            \"id\": 26,\n            \"postId\": 2,\n            \"userId\": 7,\n            \"content\": \"first post content first post content first post content first post content first post content first post content first post content first post content \",\n            \"createdAt\": \"2026-05-06T17:31:05.029Z\",\n            \"updatedAt\": \"2026-05-06T17:31:05.029Z\"\n        },\n        {\n            \"id\": 27,\n            \"postId\": 2,\n            \"userId\": 7,\n            \"content\": \"first post content first post content first post content first post content first post content first post content first post content first post content \",\n            \"createdAt\": \"2026-05-06T17:31:05.029Z\",\n            \"updatedAt\": \"2026-05-06T17:31:05.029Z\"\n        }\n    ]\n}"
+            },
+            {
+              "name": "create comment one or bulk",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "[{\r\n    \"postId\": 2,\r\n    \"userId\": 7,\r\n    \"content\": \"first post content first post content first post content first post content first post content first post content first post content first post content \"\r\n},\r\n{\r\n    \"postId\": 2,\r\n    \"userId\": 7,\r\n    \"content\": \"first post content first post content first post content first post content first post content first post content first post content first post content \"\r\n},\r\n{\r\n    \"postId\": 2,\r\n    \r\n    \"content\": \"first post content first post content first post content first post content first post content first post content first post content first post content \"\r\n}\r\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/comments",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "comments"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "54"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"36-jDxnoK9XVewihrJFAhNJlJsa7LM\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 06 May 2026 17:32:59 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": false,\n    \"message\": \"Missing required fields.\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Update post",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n\r\n    \"userId\": 7,\r\n    \"content\": \"updated post content first post content first post content first post content first post content first post content first post content first post content \"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/comments/1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "comments",
+                "1"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Update post",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n\r\n    \"userId\": 7,\r\n    \"content\": \"updated post content first post content first post content first post content first post content first post content first post content first post content \"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/comments/1",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "comments",
+                    "1"
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "76"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"4c-TGikJMdIx0GnxPwtoXG4CYsAKhY\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 06 May 2026 17:52:27 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": false,\n    \"message\": \"You are not authorized to update this comment.\"\n}"
+            },
+            {
+              "name": "Update post",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n\r\n    \"userId\": 7,\r\n    \"content\": \"updated post content first post content first post content first post content first post content first post content first post content first post content \"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/comments/3",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "comments",
+                    "3"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "48"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"30-IIMG0eFFOHSl1lDTdxc17KETs7E\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 06 May 2026 21:17:17 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": false,\n    \"message\": \"Comment not found.\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "find-or-create comment",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"postId\":1,\r\n    \"userId\": 1,\r\n    \"content\": \"first add post content first post content first post content first post content first post content first post content first post content first post content \"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/comments/find-or-create",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "comments",
+                "find-or-create"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "find-or-create comment",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"postId\":1,\r\n    \"userId\": 7,\r\n    \"content\": \"updated post content first post content first post content first post content first post content first post content first post content first post content \"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/comments/find-or-create",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "comments",
+                    "find-or-create"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "353"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"161-3D/85ABNUqbnU1ygcYvXYhySyNE\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 06 May 2026 21:55:30 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Comment already exists.\",\n    \"data\": {\n        \"id\": 28,\n        \"content\": \"updated post content first post content first post content first post content first post content first post content first post content first post content \",\n        \"postId\": 1,\n        \"userId\": 7,\n        \"createdAt\": \"2026-05-06T21:54:42.000Z\",\n        \"updatedAt\": \"2026-05-06T21:54:42.000Z\",\n        \"deletedAt\": null\n    }\n}"
+            },
+            {
+              "name": "find-or-create comment",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"postId\":1,\r\n    \"userId\": 7,\r\n    \"content\": \"first add post content first post content first post content first post content first post content first post content first post content first post content \"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/comments/find-or-create",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "comments",
+                    "find-or-create"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "344"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"158-irtdO+eSKW/Dfx2EzYf/XaYnlRM\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 06 May 2026 21:56:26 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Comment created successfully.\",\n    \"data\": {\n        \"id\": 29,\n        \"content\": \"first add post content first post content first post content first post content first post content first post content first post content first post content \",\n        \"userId\": 7,\n        \"postId\": 1,\n        \"updatedAt\": \"2026-05-06T21:56:26.931Z\",\n        \"createdAt\": \"2026-05-06T21:56:26.931Z\"\n    }\n}"
+            },
+            {
+              "name": "find-or-create comment",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"userId\": 1,\r\n    \"content\": \"first add post content first post content first post content first post content first post content first post content first post content first post content \"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/comments/find-or-create",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "comments",
+                    "find-or-create"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "54"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"36-jDxnoK9XVewihrJFAhNJlJsa7LM\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 06 May 2026 21:59:46 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": false,\n    \"message\": \"Missing required fields.\"\n}"
+            },
+            {
+              "name": "find-or-create comment",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"postId\":3,\r\n    \"userId\": 1,\r\n    \"content\": \"first add post content first post content first post content first post content first post content first post content first post content first post content \"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/comments/find-or-create",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "comments",
+                    "find-or-create"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "58"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"3a-V3G/qLoClA+6H9avlmaz+/pXppM\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 06 May 2026 22:00:42 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": false,\n    \"message\": \"Post with id: (3) not found.\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "search in comments",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/comments/search?word=first",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "comments",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "word",
+                  "value": "first"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "New Request",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/comments/search?word=firstgdsasasfasfas",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "comments",
+                    "search"
+                  ],
+                  "query": [
+                    {
+                      "key": "word",
+                      "value": "firstgdsasasfasfas"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "48"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"30-r4tvrOiTl8i6rewWHQPWynw+UW4\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 06 May 2026 22:13:56 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": false,\n    \"message\": \"No Comments found.\"\n}"
+            },
+            {
+              "name": "search in comments",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/comments/search?word=first",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "comments",
+                    "search"
+                  ],
+                  "query": [
+                    {
+                      "key": "word",
+                      "value": "first"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "4463"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"116f-2r0gcJwBVTErV2s4sFpSFrf/oq8\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 06 May 2026 22:14:44 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"data\": {\n        \"count\": 15,\n        \"comments\": [\n            {\n                \"id\": 1,\n                \"content\": \"updated post content first post content first post content first post content first post content first post content first post content first post content \",\n                \"postId\": 1,\n                \"userId\": 1,\n                \"createdAt\": \"2026-05-06T14:50:18.000Z\",\n                \"updatedAt\": \"2026-05-06T21:32:23.000Z\",\n                \"deletedAt\": null\n            },\n            {\n                \"id\": 2,\n                \"content\": \"first comment content first comment content first comment content first comment content first comment content first comment content first comment content first comment content \",\n                \"postId\": 1,\n                \"userId\": 1,\n                \"createdAt\": \"2026-05-06T14:52:46.000Z\",\n                \"updatedAt\": \"2026-05-06T14:52:46.000Z\",\n                \"deletedAt\": null\n            },\n            {\n                \"id\": 14,\n                \"content\": \"first post content first post content first post content first post content first post content first post content first post content first post content \",\n                \"postId\": 1,\n                \"userId\": 2,\n                \"createdAt\": \"2026-05-06T16:51:45.000Z\",\n                \"updatedAt\": \"2026-05-06T16:51:45.000Z\",\n                \"deletedAt\": null\n            },\n            {\n                \"id\": 18,\n                \"content\": \"first post content first post content first post content first post content first post content first post content first post content first post content \",\n                \"postId\": 1,\n                \"userId\": 7,\n                \"createdAt\": \"2026-05-06T17:26:03.000Z\",\n                \"updatedAt\": \"2026-05-06T17:26:03.000Z\",\n                \"deletedAt\": null\n            },\n            {\n                \"id\": 19,\n                \"content\": \"first post content first post content first post content first post content first post content first post content first post content first post content \",\n                \"postId\": 1,\n                \"userId\": 7,\n                \"createdAt\": \"2026-05-06T17:27:05.000Z\",\n                \"updatedAt\": \"2026-05-06T17:27:05.000Z\",\n                \"deletedAt\": null\n            },\n            {\n                \"id\": 20,\n                \"content\": \"first post content first post content first post content first post content first post content first post content first post content first post content \",\n                \"postId\": 2,\n                \"userId\": 7,\n                \"createdAt\": \"2026-05-06T17:27:13.000Z\",\n                \"updatedAt\": \"2026-05-06T17:27:13.000Z\",\n                \"deletedAt\": null\n            },\n            {\n                \"id\": 22,\n                \"content\": \"first post content first post content first post content first post content first post content first post content first post content first post content \",\n                \"postId\": 2,\n                \"userId\": 7,\n                \"createdAt\": \"2026-05-06T17:30:06.000Z\",\n                \"updatedAt\": \"2026-05-06T17:30:06.000Z\",\n                \"deletedAt\": null\n            },\n            {\n                \"id\": 23,\n                \"content\": \"first post content first post content first post content first post content first post content first post content first post content first post content \",\n                \"postId\": 2,\n                \"userId\": 7,\n                \"createdAt\": \"2026-05-06T17:30:06.000Z\",\n                \"updatedAt\": \"2026-05-06T17:30:06.000Z\",\n                \"deletedAt\": null\n            },\n            {\n                \"id\": 24,\n                \"content\": \"first post content first post content first post content first post content first post content first post content first post content first post content \",\n                \"postId\": 2,\n                \"userId\": 7,\n                \"createdAt\": \"2026-05-06T17:30:06.000Z\",\n                \"updatedAt\": \"2026-05-06T17:30:06.000Z\",\n                \"deletedAt\": null\n            },\n            {\n                \"id\": 25,\n                \"content\": \"first post content first post content first post content first post content first post content first post content first post content first post content \",\n                \"postId\": 2,\n                \"userId\": 7,\n                \"createdAt\": \"2026-05-06T17:31:05.000Z\",\n                \"updatedAt\": \"2026-05-06T17:31:05.000Z\",\n                \"deletedAt\": null\n            },\n            {\n                \"id\": 26,\n                \"content\": \"first post content first post content first post content first post content first post content first post content first post content first post content \",\n                \"postId\": 2,\n                \"userId\": 7,\n                \"createdAt\": \"2026-05-06T17:31:05.000Z\",\n                \"updatedAt\": \"2026-05-06T17:31:05.000Z\",\n                \"deletedAt\": null\n            },\n            {\n                \"id\": 27,\n                \"content\": \"first post content first post content first post content first post content first post content first post content first post content first post content \",\n                \"postId\": 2,\n                \"userId\": 7,\n                \"createdAt\": \"2026-05-06T17:31:05.000Z\",\n                \"updatedAt\": \"2026-05-06T17:31:05.000Z\",\n                \"deletedAt\": null\n            },\n            {\n                \"id\": 28,\n                \"content\": \"updated post content first post content first post content first post content first post content first post content first post content first post content \",\n                \"postId\": 1,\n                \"userId\": 7,\n                \"createdAt\": \"2026-05-06T21:54:42.000Z\",\n                \"updatedAt\": \"2026-05-06T21:54:42.000Z\",\n                \"deletedAt\": null\n            },\n            {\n                \"id\": 29,\n                \"content\": \"first add post content first post content first post content first post content first post content first post content first post content first post content \",\n                \"postId\": 1,\n                \"userId\": 7,\n                \"createdAt\": \"2026-05-06T21:56:26.000Z\",\n                \"updatedAt\": \"2026-05-06T21:56:26.000Z\",\n                \"deletedAt\": null\n            },\n            {\n                \"id\": 31,\n                \"content\": \"first add post content first post content first post content first post content first post content first post content first post content first post content \",\n                \"postId\": 1,\n                \"userId\": 1,\n                \"createdAt\": \"2026-05-06T21:59:35.000Z\",\n                \"updatedAt\": \"2026-05-06T21:59:35.000Z\",\n                \"deletedAt\": null\n            }\n        ]\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "get newest comment for specific post",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/comments/newest/2",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "comments",
+                "newest",
+                "2"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "get newest comment for specific post",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/comments/newest/3",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "comments",
+                    "newest",
+                    "3"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "48"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"30-r4tvrOiTl8i6rewWHQPWynw+UW4\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 06 May 2026 22:25:28 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": false,\n    \"message\": \"No Comments found.\"\n}"
+            },
+            {
+              "name": "get newest comment for specific post",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/comments/newest/2",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "comments",
+                    "newest",
+                    "2"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "901"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"385-dCn+hwFh+RX2OMrzTLxPTlJfaJI\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 06 May 2026 22:28:30 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"data\": [\n        {\n            \"id\": 25,\n            \"content\": \"first post content first post content first post content first post content first post content first post content first post content first post content \",\n            \"postId\": 2,\n            \"userId\": 7,\n            \"createdAt\": \"2026-05-06T17:31:05.000Z\",\n            \"updatedAt\": \"2026-05-06T17:31:05.000Z\",\n            \"deletedAt\": null\n        },\n        {\n            \"id\": 26,\n            \"content\": \"first post content first post content first post content first post content first post content first post content first post content first post content \",\n            \"postId\": 2,\n            \"userId\": 7,\n            \"createdAt\": \"2026-05-06T17:31:05.000Z\",\n            \"updatedAt\": \"2026-05-06T17:31:05.000Z\",\n            \"deletedAt\": null\n        },\n        {\n            \"id\": 27,\n            \"content\": \"first post content first post content first post content first post content first post content first post content first post content first post content \",\n            \"postId\": 2,\n            \"userId\": 7,\n            \"createdAt\": \"2026-05-06T17:31:05.000Z\",\n            \"updatedAt\": \"2026-05-06T17:31:05.000Z\",\n            \"deletedAt\": null\n        }\n    ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "get comment details",
+          "request": {
+            "method": "GET",
+            "header": []
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
