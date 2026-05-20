@@ -16,13 +16,10 @@ export const getOneByTitleService = async (title) => {
 };
 
 export const updateBookByTitleService = async (title, data) => {
-	console.log('title, data', title, data);
-
 	const book = await getOneByTitleService(title);
-	console.log('book', book);
 
 	const filteredData = Object.fromEntries(Object.entries(data).filter(([_, value]) => value !== undefined));
-	console.log('filteredData', filteredData);
+
 	if (!book) throw new AppError(404, 'Book not found!');
 
 	// return await Books.updateOne({ title }, { $set: { ...filteredData } });
@@ -38,7 +35,6 @@ export const getAllByGenreService = async (genre) => {
 };
 
 export const getAllBooksService = async ({ skip, limit }) => {
-	console.log(' skip, limit ', skip, limit);
 	return await Books.find({}, { sort: { year: 'desc' }, skip, limit }).toArray();
 };
 

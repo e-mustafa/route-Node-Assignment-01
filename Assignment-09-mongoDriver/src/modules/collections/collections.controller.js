@@ -70,8 +70,6 @@ router.post(
 		const collectionName = req.body.name || 'books';
 		const data = await createBooksIndexService(collectionName);
 
-		console.log('createBooksIndexService', data);
-
 		if (!data) {
 			throw new AppError(400, `Failed to create index for collection '${collectionName}'`);
 		}

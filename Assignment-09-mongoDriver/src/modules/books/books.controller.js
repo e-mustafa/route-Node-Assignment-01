@@ -46,8 +46,6 @@ router.post(
 		const { title, author, year, genres } = req.body;
 		const data = await createBookService({ title, author, year, genres });
 
-		console.log('createBookService data', data);
-
 		if (!data.acknowledged) return res.status(400).json({ success: false, message: `Failed to create book '${title}'!` });
 
 		return res.status(201).json({ success: true, message: `Book '${title}' created successfully!`, ...data });
@@ -75,7 +73,6 @@ router.patch(
 	routes.updateOneByTitle,
 	asyncHandler(async (req, res) => {
 		const { title, author, year, genres } = req.body;
-		console.log('req.query.title', req.query.title);
 		const data = await updateBookByTitleService(req.params.title, { title, author, year, genres });
 
 		// if (!data.acknowledged) throw new AppError(400, `Failed to Update book!`);
@@ -107,8 +104,6 @@ router.get(
 	asyncHandler(async (req, res) => {
 		const { from, to } = req.query;
 		const data = await getAllByYearService({ from: +from, to: +to });
-
-		console.log('data', data);
 
 		return res.status(200).json({ success: true, count: data?.length || 0, data });
 	}),
