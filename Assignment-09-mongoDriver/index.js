@@ -8,9 +8,25 @@ const PORT = configEnv.port;
 
 await bootstrap(app, express);
 
-app.listen(PORT, () => {
-	console.log(`✔ Server is running on port ${PORT}`);
+// Handle synchronous uncaught exceptions (e.g., using an undefined variable)
+process.on('uncaughtException', (err) => {
+	console.error('UNCAUGHT EXCEPTION! 💥 Shutting down...');
+	console.error(err.name, err.message, err.stack);
+	process.exit(1);
 });
+
+// Your server initialization code (e.g., app.listen...)
+app.listen(PORT, () => console.log(`✔ Server is running on port ${PORT}`));
+
+// Handle asynchronous unhandled rejections (e.g., DB connection failure)
+process.on('unhandledRejection', (err) => {
+	console.error('UNHANDLED REJECTION! 💥 Shutting down gracefully...');
+	console.error(err.name, err.message);
+	server.close(() => {
+		process.exit(1);
+	});
+});
+
 
 //! 👈🏻👈🏻👈🏻👈🏻 <-- postman collection
 // https://documenter.getpostman.com/view/49016393/2sBXwjuYuG

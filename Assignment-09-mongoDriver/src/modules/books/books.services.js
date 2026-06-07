@@ -4,10 +4,29 @@ import AppError from '../../utils/error-handler/app-error.js';
 const Books = await db.collection('books');
 
 export const createBookService = async ({ title, author, year, genres }) => {
+	if (!title || !author || !year || !genres) throw new AppError(400, 'Please provide all required fields!');
+
+	const existingBook = await getOneByTitleService(title);
+
+	if (existingBook) throw new AppError(400, 'Book with this title already exists!');
+
 	return await Books.insertOne({ title, author, year, genres });
 };
 
 export const createBooksService = async (data) => {
+	if (!Array.isArray(data) || !data.length) throw new AppError(400, 'Invalid input data! Expected an array of books.');
+
+	for (const book of data) {
+		if (!book.title || !book.author || !book.year || !book.genres) {
+			throw new AppError(400, 'Each book must have title, author, year, and genres fields!');
+		}
+	}
+
+	const titles = data.map((book) => book.title);
+	const existingBook = await Books.find({ title: { $in: titles } }).toArray();
+
+	if (existingBook?.length) throw new AppError(400, `${existingBook?.length} Book(s) with same titles already exists!`);
+
 	return await Books.insertMany(data);
 };
 

@@ -2,7 +2,7 @@ import { db } from '../../DB/connectionDB.js';
 
 export const createCollectionService = async (collectionName) => {
 	return await db.createCollection(collectionName, {
-		validator: {
+		validators: {
 			$jsonSchema: {
 				bsonType: 'object',
 				required: ['title'],
@@ -19,6 +19,12 @@ export const createCollectionService = async (collectionName) => {
 };
 
 export const createAuthorService = async ({ name, nationality }) => {
+	if(!name || !nationality) throw new AppError(400, 'Please provide all required fields!');
+
+	const existingAuthor = await db.collection('authors').findOne({ name });
+
+	if (existingAuthor) throw new AppError(400, 'Author with this name already exists!');
+
 	const data = await db.collection('authors').insertOne({ name, nationality });
 
 	return data;
