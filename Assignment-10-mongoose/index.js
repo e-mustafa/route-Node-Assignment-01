@@ -24,3 +24,9 @@ process.on('unhandledRejection', (err) => {
 		process.exit(1);
 	});
 });
+
+//! 👈🏻👈🏻👈🏻👈🏻 <-- postman collection
+// https://documenter.getpostman.com/view/49016393/2sBXwsMqku
+
+//! 👈🏻👈🏻👈🏻👈🏻 <-- Github link
+// https://github.com/e-mustafa/route-Node-Assignments/tree/main/Assignment-10-mongoose

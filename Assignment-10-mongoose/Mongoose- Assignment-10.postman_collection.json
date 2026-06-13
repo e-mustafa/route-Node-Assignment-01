@@ -1,0 +1,3464 @@
+{
+  "info": {
+    "_postman_id": "d9d24e7a-7fc6-469f-9538-02419504cb74",
+    "name": "Mongoose- Assignment-10",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "49016393",
+    "_collection_link": "https://go.postman.co/collection/49016393-d9d24e7a-7fc6-469f-9538-02419504cb74?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "Signup user",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"ali\",\r\n    \"email\": \"ali@gmail.com\",\r\n    \"password\": \"123456\",\r\n    \"phone\": \"01112223334\",\r\n    \"age\": 25\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/users/signup",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "users",
+                "signup"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Signup user",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"name\": \"hana\",\r\n    \"email\": \"hana@gmail.com\",\r\n    \"password\": \"123456\",\r\n    \"phone\": \"01112223334\",\r\n    \"age\": 23\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/users/signup",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "users",
+                    "signup"
+                  ]
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "50"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"32-9ZLPp2R3CITR8DzzXpFOhj3hJ2g\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 10 Jun 2026 19:55:09 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": false,\n    \"message\": \"Email already exist.\"\n}"
+            },
+            {
+              "name": "Signup user",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"name\": \"ali\",\r\n    \"email\": \"ali@gmail.com\",\r\n    \"password\": \"123456\",\r\n    \"phone\": \"01112223334\",\r\n    \"age\": 25\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/users/signup",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "users",
+                    "signup"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "192"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"c0-Cogb23fTzGmugsBTmsOaVnGzIx4\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 10 Jun 2026 19:56:18 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"User Created successfully\",\n    \"data\": {\n        \"name\": \"ali\",\n        \"email\": \"ali@gmail.com\",\n        \"password\": \"123456\",\n        \"phone\": \"01112223334\",\n        \"age\": 25,\n        \"_id\": \"6a29c1628ec0d3b9aa5559d2\",\n        \"__v\": 0\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Update user",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"ali2\",\r\n    \"email\": \"ali2@gmail.com\",\r\n    \"age\": 12\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/users/6a2ac898d50c71671384606f",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "users",
+                "6a2ac898d50c71671384606f"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Update user",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"name\": \"ali2\",\r\n    \"email\": \"ali2@gmail.com\",\r\n    \"phone\": \"01112223335\",\r\n    \"age\": 29\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/users/6a29c1628ec0d3b9aa5559d2",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "users",
+                    "6a29c1628ec0d3b9aa5559d2"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "194"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"c2-uhXMzyRc8FpgfPZyohgzPDlKrZY\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 11 Jun 2026 13:17:03 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"User Updated successfully\",\n    \"data\": {\n        \"_id\": \"6a29c1628ec0d3b9aa5559d2\",\n        \"name\": \"ali2\",\n        \"email\": \"ali2@gmail.com\",\n        \"password\": \"123456\",\n        \"phone\": \"01112223335\",\n        \"age\": 29,\n        \"__v\": 0\n    }\n}"
+            },
+            {
+              "name": "Update user",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"name\": \"ali2\",\r\n    \"email\": \"ali2@gmail.com\",\r\n    \"phone\": \"01112223335\",\r\n    \"age\": 29\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/users/6a29c1628ec0d3b9aa5559d9",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "users",
+                    "6a29c1628ec0d3b9aa5559d9"
+                  ]
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "50"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"32-9ZLPp2R3CITR8DzzXpFOhj3hJ2g\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 11 Jun 2026 13:35:58 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": false,\n    \"message\": \"Email already exist.\"\n}"
+            },
+            {
+              "name": "Update user",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    // \"name\": \"ali3\",\r\n    // \"email\": \"ali3@gmail.com\",\r\n    // \"phone\": \"01112223335\",\r\n    \"age\": 30\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/users/6a29c1628ec0d3b9aa5559d9",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "users",
+                    "6a29c1628ec0d3b9aa5559d9"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "45"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"2d-6sxVj3ibrQDgBYLSEa4BwOAATyI\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 11 Jun 2026 13:51:06 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": false,\n    \"message\": \"User not found!\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Login user",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"ali@gmail.com\",\r\n    \"password\": \"123456\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/users/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "users",
+                "login"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Login user",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/users/login",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "users",
+                    "login"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "75"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"4b-TaIb1aVehKc+0Qd4ljEELR1bcNU\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 10 Jun 2026 20:03:50 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": false,\n    \"message\": \"User information required, email and password\"\n}"
+            },
+            {
+              "name": "Login user",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"email\": \"ali@gmail.com\",\r\n    \"password\": \"12345\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/users/login",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "users",
+                    "login"
+                  ]
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "56"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"38-obZcUVkuBo9U8Ea/9i6cli+4R/0\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 10 Jun 2026 20:06:09 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": false,\n    \"message\": \"Invalid email or password.\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Delete user",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/users/6a29c1628ec0d3b9aa5559d2",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "users",
+                "6a29c1628ec0d3b9aa5559d2"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Delete user",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/users/6a29c1628ec0d3b9aa5559d9",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "users",
+                    "6a29c1628ec0d3b9aa5559d9"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "45"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"2d-hW1m8AhEsf3GhMJYb2060KxXj78\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 11 Jun 2026 14:24:47 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": false,\n    \"message\": \"user not found!\"\n}"
+            },
+            {
+              "name": "Delete user",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/users/6a29c1628ec0d3b9aa5559d2",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "users",
+                    "6a29c1628ec0d3b9aa5559d2"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "54"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"36-U3bFObQjPKn4UTk58ToYjyCEL80\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 11 Jun 2026 14:27:22 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"User deleted successfully\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get user",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/users/6a2ac898d50c71671384606f",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "users",
+                "6a2ac898d50c71671384606f"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get user",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/users/6a29c1628ec0d3b9aa5559d2",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "users",
+                    "6a29c1628ec0d3b9aa5559d2"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "45"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"2d-hW1m8AhEsf3GhMJYb2060KxXj78\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 11 Jun 2026 14:38:11 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": false,\n    \"message\": \"user not found!\"\n}"
+            },
+            {
+              "name": "Get user",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/users/6a2ac898d50c71671384606f",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "users",
+                    "6a2ac898d50c71671384606f"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "126"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"7e-3aJdMKld53E4NbCrR9IksWH+7ss\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 11 Jun 2026 14:40:33 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"data\": {\n        \"_id\": \"6a2ac898d50c71671384606f\",\n        \"name\": \"ali\",\n        \"email\": \"ali@gmail.com\",\n        \"phone\": \"01112223334\",\n        \"age\": 25\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get All users",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/users",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "users"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get All users",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/users",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "users"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "338"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"152-ENP49D6BwN9aZfYgwu/Rk1zMNUQ\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 11 Jun 2026 22:58:24 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"data\": [\n        {\n            \"_id\": \"6a29c0cd8d1271878e2b7c86\",\n            \"name\": \"hana\",\n            \"email\": \"hana@gmail.com\",\n            \"phone\": \"01112223334\",\n            \"age\": 23,\n            \"id\": \"6a29c0cd8d1271878e2b7c86\"\n        },\n        {\n            \"_id\": \"6a2ac898d50c71671384606f\",\n            \"name\": \"ali2\",\n            \"email\": \"ali2@gmail.com\",\n            \"phone\": \"01112223334\",\n            \"age\": 19,\n            \"updatedAt\": \"2026-06-11T22:53:04.567Z\",\n            \"id\": \"6a2ac898d50c71671384606f\"\n        }\n    ]\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Notes",
+      "item": [
+        {
+          "name": "Create note",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"userId\": \"6a2ac898d50c71671384606f\",\r\n\r\n    \"title\": \"Note4\",\r\n    \"content\":\"this content for note1\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/notes",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "notes"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Create note",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"userId\": \"6a2ac898d50c71671384606f\",\r\n\r\n    \"title\": \"S NOTE 1\",\r\n    \"content\":\"this content for note1\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/notes",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "notes"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "1849"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"739-Q7K2kGQhcpKUm3KYdJCVerpt8XY\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 11 Jun 2026 23:07:47 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": false,\n    \"message\": \"Validation failed. Please check your information.\",\n    \"errors\": {\n        \"title\": \"Note title must be in lowercase!\"\n    },\n    \"error\": {\n        \"name\": \"Error\",\n        \"statusCode\": 400,\n        \"isOperational\": true,\n        \"stack\": \"Error: Validation failed. Please check your information.\\n    at handleMongooseValidationError (file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/utils/error-handler/global-error.js:54:9)\\n    at globalErrorHandler (file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/utils/error-handler/global-error.js:69:46)\\n    at Layer.handleError (E:\\\\MUSTAFA\\\\Cours Web devlopment\\\\Back-End Node.js Route\\\\Assignments\\\\Assignment-09-mongoose\\\\node_modules\\\\router\\\\lib\\\\layer.js:116:17)\\n    at trimPrefix (E:\\\\MUSTAFA\\\\Cours Web devlopment\\\\Back-End Node.js Route\\\\Assignments\\\\Assignment-09-mongoose\\\\node_modules\\\\router\\\\index.js:340:13)\\n    at E:\\\\MUSTAFA\\\\Cours Web devlopment\\\\Back-End Node.js Route\\\\Assignments\\\\Assignment-09-mongoose\\\\node_modules\\\\router\\\\index.js:297:9\\n    at processParams (E:\\\\MUSTAFA\\\\Cours Web devlopment\\\\Back-End Node.js Route\\\\Assignments\\\\Assignment-09-mongoose\\\\node_modules\\\\router\\\\index.js:582:12)\\n    at next (E:\\\\MUSTAFA\\\\Cours Web devlopment\\\\Back-End Node.js Route\\\\Assignments\\\\Assignment-09-mongoose\\\\node_modules\\\\router\\\\index.js:291:5)\\n    at E:\\\\MUSTAFA\\\\Cours Web devlopment\\\\Back-End Node.js Route\\\\Assignments\\\\Assignment-09-mongoose\\\\node_modules\\\\router\\\\index.js:688:15\\n    at next (E:\\\\MUSTAFA\\\\Cours Web devlopment\\\\Back-End Node.js Route\\\\Assignments\\\\Assignment-09-mongoose\\\\node_modules\\\\router\\\\index.js:276:14)\\n    at next (E:\\\\MUSTAFA\\\\Cours Web devlopment\\\\Back-End Node.js Route\\\\Assignments\\\\Assignment-09-mongoose\\\\node_modules\\\\router\\\\lib\\\\route.js:132:14)\"\n    }\n}"
+            },
+            {
+              "name": "Create note",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"userId\": \"6a2ac898d50c71671384606f\",\r\n\r\n    \"title\": \"Note4\",\r\n    \"content\":\"this content for note1\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/notes",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "notes"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "305"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"131-P0DnoecxETzoz2XCeKzZfOLX5ew\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 11 Jun 2026 23:12:33 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Note created successfully\",\n    \"data\": {\n        \"title\": \"Note4\",\n        \"content\": \"this content for note1\",\n        \"userId\": \"6a2ac898d50c71671384606f\",\n        \"_id\": \"6a2b40e184ba83c313b6db2f\",\n        \"createdAt\": \"2026-06-11T23:12:33.895Z\",\n        \"updatedAt\": \"2026-06-11T23:12:33.895Z\",\n        \"version\": 0,\n        \"id\": \"6a2b40e184ba83c313b6db2f\"\n    }\n}"
+            },
+            {
+              "name": "Create note",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"userId\": \"6a2ac898d50c716713846062\",\r\n\r\n    \"title\": \"Note4\",\r\n    \"content\":\"this content for note1\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/notes",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "notes"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "969"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"3c9-7k29EtF7oKApy3DXd7abgyHvcuo\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 11 Jun 2026 23:13:44 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": false,\n    \"message\": \"userId wrong!, No user not found for this userId\",\n    \"error\": {\n        \"name\": \"Error\",\n        \"statusCode\": 404,\n        \"isOperational\": true,\n        \"stack\": \"Error: userId wrong!, No user not found for this userId\\n    at throwExpiation (file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/utils/response/throw.expiations.js:4:8)\\n    at createNoteService (file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/modules/notes/notes.services.js:14:3)\\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\\n    at async file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/modules/notes/notes.controller.js:28:16\\n    at async file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/utils/error-handler/async-handler.js:4:4\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Update single note",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"userId\": \"6a2ac898d50c71671384606f\",\r\n\r\n    \"title\": \"Note4 updated\",\r\n    \"content\":\"this content for note1 updated\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/notes/6a2b40e184ba83c313b6db2f",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "notes",
+                "6a2b40e184ba83c313b6db2f"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "New Request",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"userId\": \"6a2ac898d50c71671384606f\",\r\n\r\n    \"title\": \"Note4 updated\",\r\n    \"content\":\"this content for note1 updated\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/notes/6a2b40e184ba83c313b6db2f",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "notes",
+                    "6a2b40e184ba83c313b6db2f"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "321"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"141-nzgNq8v6k8DeIJ3/p735xpxzKDY\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 11 Jun 2026 23:22:09 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Note updated successfully\",\n    \"data\": {\n        \"_id\": \"6a2b40e184ba83c313b6db2f\",\n        \"title\": \"Note4 updated\",\n        \"content\": \"this content for note1 updated\",\n        \"userId\": \"6a2ac898d50c71671384606f\",\n        \"createdAt\": \"2026-06-11T23:12:33.895Z\",\n        \"updatedAt\": \"2026-06-11T23:21:09.859Z\",\n        \"version\": 0,\n        \"id\": \"6a2b40e184ba83c313b6db2f\"\n    }\n}"
+            },
+            {
+              "name": "New Request",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"userId\": \"6a2ac898d50c716713846063\",\r\n\r\n    \"title\": \"Note4 updated\",\r\n    \"content\":\"this content for note1 updated\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/notes/6a2b40e184ba83c313b6db2f",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "notes",
+                    "6a2b40e184ba83c313b6db2f"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "929"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"3a1-H5ozzwJNDIPYxI3X0k/Umu7yf9s\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 11 Jun 2026 23:22:46 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": false,\n    \"message\": \"Wrong userId, user not fount\",\n    \"error\": {\n        \"name\": \"Error\",\n        \"statusCode\": 404,\n        \"isOperational\": true,\n        \"stack\": \"Error: Wrong userId, user not fount\\n    at throwExpiation (file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/utils/response/throw.expiations.js:4:8)\\n    at updateNoteService (file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/modules/notes/notes.services.js:32:3)\\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\\n    at async file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/modules/notes/notes.controller.js:41:16\\n    at async file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/utils/error-handler/async-handler.js:4:4\"\n    }\n}"
+            },
+            {
+              "name": "Update single note",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"userId\": \"6a29c0cd8d1271878e2b7c86\",\r\n\r\n    \"title\": \"Note4 updated\",\r\n    \"content\":\"this content for note1 updated\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/notes/6a2b40e184ba83c313b6db2f",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "notes",
+                    "6a2b40e184ba83c313b6db2f"
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "919"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"397-Rh0nxhjpmKHWHSeCY9vwrBfky3U\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 11 Jun 2026 23:26:09 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": false,\n    \"message\": \"You are note the owner!\",\n    \"error\": {\n        \"name\": \"Error\",\n        \"statusCode\": 403,\n        \"isOperational\": true,\n        \"stack\": \"Error: You are note the owner!\\n    at throwExpiation (file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/utils/response/throw.expiations.js:4:8)\\n    at updateNoteService (file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/modules/notes/notes.services.js:36:3)\\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\\n    at async file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/modules/notes/notes.controller.js:41:16\\n    at async file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/utils/error-handler/async-handler.js:4:4\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Replace note",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"userId\": \"6a2ac898d50c71671384606f\",\r\n\r\n    \"title\": \"Note4 replaced!\",\r\n    \"content\":\"this content for note1 replaced!\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/notes/replace/6a2b40e184ba83c313b6db2f",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "notes",
+                "replace",
+                "6a2b40e184ba83c313b6db2f"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Replace note",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"userId\": \"6a2ac898d50c71671384606a\",\r\n\r\n    \"title\": \"Note4 replaced!\",\r\n    \"content\":\"this content for note1 replaced!\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/notes/replace/6a2b40e184ba83c313b6db2f",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "notes",
+                    "replace",
+                    "6a2b40e184ba83c313b6db2f"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "930"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"3a2-lbkv0dVG7eS+BsQDjv0bKiQ08bE\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 11 Jun 2026 23:32:10 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": "{\n    \"success\": false,\n    \"message\": \"Wrong userId, user not fount\",\n    \"error\": {\n        \"name\": \"Error\",\n        \"statusCode\": 404,\n        \"isOperational\": true,\n        \"stack\": \"Error: Wrong userId, user not fount\\n    at throwExpiation (file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/utils/response/throw.expiations.js:4:8)\\n    at replaceNoteService (file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/modules/notes/notes.services.js:59:3)\\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\\n    at async file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/modules/notes/notes.controller.js:54:16\\n    at async file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/utils/error-handler/async-handler.js:4:4\"\n    }\n}"
+            },
+            {
+              "name": "Replace note",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"userId\": \"6a29c0cd8d1271878e2b7c86\",\r\n\r\n    \"title\": \"Note4 replaced!\",\r\n    \"content\":\"this content for note1 replaced!\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/notes/replace/6a2b40e184ba83c313b6db2f",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "notes",
+                    "replace",
+                    "6a2b40e184ba83c313b6db2f"
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "920"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"398-AwJJWN5nnkM6WdR2OD8gDhZwDH4\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 11 Jun 2026 23:33:39 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": "{\n    \"success\": false,\n    \"message\": \"You are note the owner!\",\n    \"error\": {\n        \"name\": \"Error\",\n        \"statusCode\": 403,\n        \"isOperational\": true,\n        \"stack\": \"Error: You are note the owner!\\n    at throwExpiation (file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/utils/response/throw.expiations.js:4:8)\\n    at replaceNoteService (file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/modules/notes/notes.services.js:63:3)\\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\\n    at async file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/modules/notes/notes.controller.js:54:16\\n    at async file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/utils/error-handler/async-handler.js:4:4\"\n    }\n}"
+            },
+            {
+              "name": "Replace note",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"userId\": \"6a2ac898d50c71671384606f\",\r\n\r\n    \"title\": \"Note4 replaced!\",\r\n    \"content\":\"this content for note1 replaced!\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/notes/replace/6a2b40e184ba83c313b6db2f",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "notes",
+                    "replace",
+                    "6a2b40e184ba83c313b6db2f"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "314"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"13a-biRtIB9U+NL8TPuzq0fm9zecv9U\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 12 Jun 2026 00:05:57 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Note replaced successfully\",\n    \"data\": {\n        \"_id\": \"6a2b40e184ba83c313b6db2f\",\n        \"title\": \"Note4 replaced!\",\n        \"content\": \"this content for note1 replaced!\",\n        \"userId\": \"6a2ac898d50c71671384606f\",\n        \"createdAt\": \"2026-06-12T00:05:57.553Z\",\n        \"updatedAt\": \"2026-06-12T00:05:57.553Z\",\n        \"id\": \"6a2b40e184ba83c313b6db2f\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Update all notes title",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"userId\": \"6a2ac898d50c71671384606f\",\r\n    \"title\": \"General Title for all notes\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/notes/all",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "notes",
+                "all"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Update all notes title",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"userId\": \"6a2ac898d50c71671384606f\",\r\n    \"title\": \"General Title for all notes\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/notes/all",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "notes",
+                    "all"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "57"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"39-kyCkTQP7rHdoagUznkdJthbrjvA\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 12 Jun 2026 00:00:59 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"4 Notes updated successfully\"\n}"
+            },
+            {
+              "name": "Update all notes title",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"userId\": \"6a2ac898d50c71671384606a\",\r\n    \"title\": \"General Title for all notes\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/notes/all",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "notes",
+                    "all"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "933"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"3a5-nDtl1tbEqvm0o3bCFwFRLhrfu8U\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 12 Jun 2026 00:04:48 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": false,\n    \"message\": \"Wrong userId, user not fount\",\n    \"error\": {\n        \"name\": \"Error\",\n        \"statusCode\": 404,\n        \"isOperational\": true,\n        \"stack\": \"Error: Wrong userId, user not fount\\n    at throwExpiation (file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/utils/response/throw.expiations.js:4:8)\\n    at updateAllNotesService (file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/modules/notes/notes.services.js:90:3)\\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\\n    at async file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/modules/notes/notes.controller.js:40:16\\n    at async file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/utils/error-handler/async-handler.js:4:4\"\n    }\n}"
+            },
+            {
+              "name": "Update all notes title",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"userId\": \"6a29c0cd8d1271878e2b7c86\",\r\n    \"title\": \"General Title for all notes\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/notes/all",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "notes",
+                    "all"
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "923"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"39b-l3vayu9/ZdsToUNf2HJxYUVpDos\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 12 Jun 2026 00:10:47 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": false,\n    \"message\": \"You are note the owner!\",\n    \"error\": {\n        \"name\": \"Error\",\n        \"statusCode\": 403,\n        \"isOperational\": true,\n        \"stack\": \"Error: You are note the owner!\\n    at throwExpiation (file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/utils/response/throw.expiations.js:4:8)\\n    at updateAllNotesService (file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/modules/notes/notes.services.js:99:3)\\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\\n    at async file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/modules/notes/notes.controller.js:40:16\\n    at async file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/utils/error-handler/async-handler.js:4:4\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Delete note",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{ \r\n    \"userId\": \"6a29c0cd8d1271878e2b7c86\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/notes/6a2b401649ae717213b50442",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "notes",
+                "6a2b401649ae717213b50442"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Delete note",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{ \r\n    \"userId\": \"6a2ac898d50c71671384606f\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/notes/6a2b3f8a49ae717213b5043f",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "notes",
+                    "6a2b3f8a49ae717213b5043f"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "904"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"388-kYzugggQQzNti4DnCPmPmBnKd7A\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 12 Jun 2026 00:41:22 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": false,\n    \"message\": \"Note not found!\",\n    \"error\": {\n        \"name\": \"Error\",\n        \"statusCode\": 404,\n        \"isOperational\": true,\n        \"stack\": \"Error: Note not found!\\n    at throwExpiation (file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/utils/response/throw.expiations.js:4:8)\\n    at deleteNoteService (file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/modules/notes/notes.services.js:132:3)\\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\\n    at async file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/modules/notes/notes.controller.js:81:16\\n    at async file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/utils/error-handler/async-handler.js:4:4\"\n    }\n}"
+            },
+            {
+              "name": "Delete note",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{ \r\n    \"userId\": \"6a2ac898d50c71671384606f\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/notes/6a2b3f9849ae717213b50440",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "notes",
+                    "6a2b3f9849ae717213b50440"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "315"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"13b-+Vmv23hgE9Uuee0qulYEsdKufDw\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 12 Jun 2026 00:42:20 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Note deleted successfully\",\n    \"data\": {\n        \"_id\": \"6a2b3f9849ae717213b50440\",\n        \"title\": \"General Title for all notes\",\n        \"content\": \"this content for note1\",\n        \"userId\": \"6a2ac898d50c71671384606f\",\n        \"createdAt\": \"2026-06-11T23:07:04.459Z\",\n        \"updatedAt\": \"2026-06-12T00:00:59.064Z\",\n        \"id\": \"6a2b3f9849ae717213b50440\"\n    }\n}"
+            },
+            {
+              "name": "Delete note",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{ \r\n    \"userId\": \"6a29c0cd8d1271878e2b7c86\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/notes/6a2b401649ae717213b50442",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "notes",
+                    "6a2b401649ae717213b50442"
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "920"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"398-RoC3JIJex2+yzf6tsJn9GsCPkmg\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 12 Jun 2026 00:43:53 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": false,\n    \"message\": \"You are note the owner!\",\n    \"error\": {\n        \"name\": \"Error\",\n        \"statusCode\": 403,\n        \"isOperational\": true,\n        \"stack\": \"Error: You are note the owner!\\n    at throwExpiation (file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/utils/response/throw.expiations.js:4:8)\\n    at deleteNoteService (file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/modules/notes/notes.services.js:141:3)\\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\\n    at async file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/modules/notes/notes.controller.js:81:16\\n    at async file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/utils/error-handler/async-handler.js:4:4\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get user notes with pagination",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{ \r\n    \"userId\": \"6a2ac898d50c71671384606f\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/notes/paginate-sort?page=1&limit=10",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "notes",
+                "paginate-sort"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get all notes",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/notes/paginate-sort",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "notes",
+                    "paginate-sort"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "1803"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"70b-X0p0Zh3qR1oazYiIFP+2eUmHPCk\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 12 Jun 2026 13:02:43 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": false,\n    \"message\": \"Please provide note information, userId\",\n    \"error\": {\n        \"name\": \"Error\",\n        \"statusCode\": 400,\n        \"isOperational\": true,\n        \"stack\": \"Error: Please provide note information, userId\\n    at throwExpiation (file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/utils/response/throw.expiations.js:4:8)\\n    at getNotesService (file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/modules/notes/notes.services.js:155:3)\\n    at file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/modules/notes/notes.controller.js:93:22\\n    at file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/utils/error-handler/async-handler.js:4:10\\n    at Layer.handleRequest (E:\\\\MUSTAFA\\\\Cours Web devlopment\\\\Back-End Node.js Route\\\\Assignments\\\\Assignment-09-mongoose\\\\node_modules\\\\router\\\\lib\\\\layer.js:152:17)\\n    at next (E:\\\\MUSTAFA\\\\Cours Web devlopment\\\\Back-End Node.js Route\\\\Assignments\\\\Assignment-09-mongoose\\\\node_modules\\\\router\\\\lib\\\\route.js:157:13)\\n    at Route.dispatch (E:\\\\MUSTAFA\\\\Cours Web devlopment\\\\Back-End Node.js Route\\\\Assignments\\\\Assignment-09-mongoose\\\\node_modules\\\\router\\\\lib\\\\route.js:117:3)\\n    at handle (E:\\\\MUSTAFA\\\\Cours Web devlopment\\\\Back-End Node.js Route\\\\Assignments\\\\Assignment-09-mongoose\\\\node_modules\\\\router\\\\index.js:435:11)\\n    at Layer.handleRequest (E:\\\\MUSTAFA\\\\Cours Web devlopment\\\\Back-End Node.js Route\\\\Assignments\\\\Assignment-09-mongoose\\\\node_modules\\\\router\\\\lib\\\\layer.js:152:17)\\n    at E:\\\\MUSTAFA\\\\Cours Web devlopment\\\\Back-End Node.js Route\\\\Assignments\\\\Assignment-09-mongoose\\\\node_modules\\\\router\\\\index.js:295:15\"\n    }\n}"
+            },
+            {
+              "name": "Get user notes with pagination",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{ \r\n    \"userId\": \"6a2ac898d50c71671384606f\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/notes/paginate-sort?page=1&limit=10",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "notes",
+                    "paginate-sort"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "650"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"28a-XAx3bqkPRyW3xMQphGV1Y/QAQMg\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 12 Jun 2026 13:38:50 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"data\": {\n        \"metadata\": {\n            \"totalItems\": 2,\n            \"totalPages\": 1,\n            \"currentPage\": 1,\n            \"limit\": 10,\n            \"hasNextPage\": false,\n            \"hasPrevPage\": false\n        },\n        \"data\": [\n            {\n                \"_id\": \"6a2b40e184ba83c313b6db2f\",\n                \"title\": \"Note4 replaced!\",\n                \"content\": \"this content for note1 replaced!\",\n                \"userId\": \"6a2ac898d50c71671384606f\",\n                \"createdAt\": \"2026-06-12T00:05:57.553Z\",\n                \"updatedAt\": \"2026-06-12T00:05:57.553Z\",\n                \"id\": \"6a2b40e184ba83c313b6db2f\"\n            },\n            {\n                \"_id\": \"6a2b401649ae717213b50442\",\n                \"title\": \"General Title for all notes\",\n                \"content\": \"this content for note1\",\n                \"userId\": \"6a2ac898d50c71671384606f\",\n                \"createdAt\": \"2026-06-11T23:09:10.956Z\",\n                \"updatedAt\": \"2026-06-12T00:00:59.064Z\",\n                \"id\": \"6a2b401649ae717213b50442\"\n            }\n        ]\n    }\n}"
+            },
+            {
+              "name": "Get user notes with pagination",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{ \r\n    \"userId\": \"6a2ac898d50c71671384606a\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/notes/paginate-sort?page=1&limit=10",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "notes",
+                    "paginate-sort"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "937"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"3a9-UDOQKcOBuTMnXzzoE08jVuCwOCg\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 12 Jun 2026 13:39:15 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": false,\n    \"message\": \"Wrong userId, user not fount\",\n    \"error\": {\n        \"name\": \"Error\",\n        \"statusCode\": 404,\n        \"isOperational\": true,\n        \"stack\": \"Error: Wrong userId, user not fount\\n    at throwExpiation (file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/utils/response/throw.expiations.js:4:8)\\n    at getPaginatedNotesService (file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/modules/notes/notes.services.js:227:3)\\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\\n    at async file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/modules/notes/notes.controller.js:93:16\\n    at async file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/utils/error-handler/async-handler.js:4:4\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get single note",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"userId\": \"6a2ac898d50c71671384606f\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/notes/6a2b401649ae717213b50442",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "notes",
+                "6a2b401649ae717213b50442"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get single note",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"userId\": \"6a2ac898d50c71671384606f\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/notes/6a2b401649ae717213b50442",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "notes",
+                    "6a2b401649ae717213b50442"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "285"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"11d-WQXXEQX04T3GsxVibU9bRAGTzmc\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 12 Jun 2026 14:11:22 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"data\": {\n        \"_id\": \"6a2b401649ae717213b50442\",\n        \"title\": \"General Title for all notes\",\n        \"content\": \"this content for note1\",\n        \"userId\": \"6a2ac898d50c71671384606f\",\n        \"createdAt\": \"2026-06-11T23:09:10.956Z\",\n        \"updatedAt\": \"2026-06-12T00:00:59.064Z\",\n        \"__v\": 0,\n        \"id\": \"6a2b401649ae717213b50442\"\n    }\n}"
+            },
+            {
+              "name": "Get single note",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"userId\": \"6a2ac898d50c716713846062\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/notes/6a2b401649ae717213b50442",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "notes",
+                    "6a2b401649ae717213b50442"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "928"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"3a0-dZc+eNk0PLrSkFTYlxOlMKI4XIA\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 12 Jun 2026 14:11:42 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": false,\n    \"message\": \"Wrong userId, user not found\",\n    \"error\": {\n        \"name\": \"Error\",\n        \"statusCode\": 404,\n        \"isOperational\": true,\n        \"stack\": \"Error: Wrong userId, user not found\\n    at throwException (file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/utils/response/throw.exceptions.js:4:8)\\n    at getNoteService (file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/modules/notes/notes.services.js:256:3)\\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\\n    at async file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/modules/notes/notes.controller.js:115:16\\n    at async file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/utils/error-handler/async-handler.js:4:4\"\n    }\n}"
+            },
+            {
+              "name": "Get single note",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"userId\": \"6a29c0cd8d1271878e2b7c86\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/notes/6a2b401649ae717213b50442",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "notes",
+                    "6a2b401649ae717213b50442"
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "918"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"396-1mFKVw+8waoGYXnZghXLI0SF/FE\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 12 Jun 2026 14:12:04 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": false,\n    \"message\": \"You are note the owner!\",\n    \"error\": {\n        \"name\": \"Error\",\n        \"statusCode\": 403,\n        \"isOperational\": true,\n        \"stack\": \"Error: You are note the owner!\\n    at throwException (file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/utils/response/throw.exceptions.js:4:8)\\n    at getNoteService (file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/modules/notes/notes.services.js:260:3)\\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\\n    at async file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/modules/notes/notes.controller.js:115:16\\n    at async file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/utils/error-handler/async-handler.js:4:4\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get note by content",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"userId\": \"6a2ac898d50c71671384606f\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/notes/note-by-content?content=content for note",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "notes",
+                "note-by-content"
+              ],
+              "query": [
+                {
+                  "key": "content",
+                  "value": "content for note"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get note by content",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"userId\": \"6a2ac898d50c71671384606f\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/notes/note-by-content?content=content for note",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "notes",
+                    "note-by-content"
+                  ],
+                  "query": [
+                    {
+                      "key": "content",
+                      "value": "content for note"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "285"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"11d-WQXXEQX04T3GsxVibU9bRAGTzmc\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 12 Jun 2026 14:29:29 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"data\": {\n        \"_id\": \"6a2b401649ae717213b50442\",\n        \"title\": \"General Title for all notes\",\n        \"content\": \"this content for note1\",\n        \"userId\": \"6a2ac898d50c71671384606f\",\n        \"createdAt\": \"2026-06-11T23:09:10.956Z\",\n        \"updatedAt\": \"2026-06-12T00:00:59.064Z\",\n        \"__v\": 0,\n        \"id\": \"6a2b401649ae717213b50442\"\n    }\n}"
+            },
+            {
+              "name": "Get note by content",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"userId\": \"6a2ac898d50c71671384606f\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/notes/note-by-content?content=",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "notes",
+                    "note-by-content"
+                  ],
+                  "query": [
+                    {
+                      "key": "content",
+                      "value": ""
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "1788"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"6fc-e2PY7i67b2Ik7eu9VEwvndg9wro\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 12 Jun 2026 14:30:39 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": false,\n    \"message\": \"Please provide note content\",\n    \"error\": {\n        \"name\": \"Error\",\n        \"statusCode\": 400,\n        \"isOperational\": true,\n        \"stack\": \"Error: Please provide note content\\n    at throwException (file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/utils/response/throw.exceptions.js:4:8)\\n    at getNoteByContentService (file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/modules/notes/notes.services.js:268:3)\\n    at file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/modules/notes/notes.controller.js:117:22\\n    at file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/utils/error-handler/async-handler.js:4:10\\n    at Layer.handleRequest (E:\\\\MUSTAFA\\\\Cours Web devlopment\\\\Back-End Node.js Route\\\\Assignments\\\\Assignment-09-mongoose\\\\node_modules\\\\router\\\\lib\\\\layer.js:152:17)\\n    at next (E:\\\\MUSTAFA\\\\Cours Web devlopment\\\\Back-End Node.js Route\\\\Assignments\\\\Assignment-09-mongoose\\\\node_modules\\\\router\\\\lib\\\\route.js:157:13)\\n    at Route.dispatch (E:\\\\MUSTAFA\\\\Cours Web devlopment\\\\Back-End Node.js Route\\\\Assignments\\\\Assignment-09-mongoose\\\\node_modules\\\\router\\\\lib\\\\route.js:117:3)\\n    at handle (E:\\\\MUSTAFA\\\\Cours Web devlopment\\\\Back-End Node.js Route\\\\Assignments\\\\Assignment-09-mongoose\\\\node_modules\\\\router\\\\index.js:435:11)\\n    at Layer.handleRequest (E:\\\\MUSTAFA\\\\Cours Web devlopment\\\\Back-End Node.js Route\\\\Assignments\\\\Assignment-09-mongoose\\\\node_modules\\\\router\\\\lib\\\\layer.js:152:17)\\n    at E:\\\\MUSTAFA\\\\Cours Web devlopment\\\\Back-End Node.js Route\\\\Assignments\\\\Assignment-09-mongoose\\\\node_modules\\\\router\\\\index.js:295:15\"\n    }\n}"
+            },
+            {
+              "name": "Get note by content",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"userId\": \"6a2ac898d50c71671384606a\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/notes/note-by-content?content=content for note",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "notes",
+                    "note-by-content"
+                  ],
+                  "query": [
+                    {
+                      "key": "content",
+                      "value": "content for note"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "937"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"3a9-8pHV9U1Po32d/blGlWC8h2sbkDI\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 12 Jun 2026 14:31:09 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": false,\n    \"message\": \"Wrong userId, user not found\",\n    \"error\": {\n        \"name\": \"Error\",\n        \"statusCode\": 404,\n        \"isOperational\": true,\n        \"stack\": \"Error: Wrong userId, user not found\\n    at throwException (file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/utils/response/throw.exceptions.js:4:8)\\n    at getNoteByContentService (file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/modules/notes/notes.services.js:288:3)\\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\\n    at async file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/modules/notes/notes.controller.js:117:16\\n    at async file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/utils/error-handler/async-handler.js:4:4\"\n    }\n}"
+            },
+            {
+              "name": "Get note by content",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"userId\": \"6a2ac898d50c71671384606f\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/notes/note-by-content?content=content for note2",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "notes",
+                    "note-by-content"
+                  ],
+                  "query": [
+                    {
+                      "key": "content",
+                      "value": "content for note2"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "49"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"31-0YT7VBqZ5Tg2WMN5lX+aRqHhiI0\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 12 Jun 2026 14:45:02 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"No Result!\",\n    \"data\": {}\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get nots and user",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"userId\": \"6a2ac898d50c71671384606f\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/notes/note-with-user",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "notes",
+                "note-with-user"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get nots and user",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"userId\": \"6a2ac898d50c71671384606f\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/notes/note-with-user",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "notes",
+                    "note-with-user"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "243"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"f3-6bmn8nwAw8jRhgj2cjfKI+Q7gzk\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 13 Jun 2026 13:33:32 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"data\": [\n        {\n            \"title\": \"General Title for all notes\",\n            \"userId\": {\n                \"email\": \"ali2@gmail.com\"\n            },\n            \"createdAt\": \"2026-06-11T23:09:10.956Z\"\n        },\n        {\n            \"title\": \"Note4 replaced!\",\n            \"userId\": {\n                \"email\": \"ali2@gmail.com\"\n            },\n            \"createdAt\": \"2026-06-12T00:05:57.553Z\"\n        }\n    ]\n}"
+            },
+            {
+              "name": "Get nots and user",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"userId\": \"6a2ac898d50c71671384606w\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/notes/note-with-user",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "notes",
+                    "note-with-user"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "1745"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"6d1-9GH5Llsg2DZxKPWwVEJH4g4TsJA\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 13 Jun 2026 13:38:19 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": false,\n    \"message\": \"Invalid field value for _id\",\n    \"error\": {\n        \"name\": \"Error\",\n        \"statusCode\": 400,\n        \"isOperational\": true,\n        \"stack\": \"Error: Invalid field value for _id\\n    at handleMongooseCastError (file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/utils/error-handler/global-error.js:34:9)\\n    at globalErrorHandler (file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/utils/error-handler/global-error.js:67:40)\\n    at Layer.handleError (E:\\\\MUSTAFA\\\\Cours Web devlopment\\\\Back-End Node.js Route\\\\Assignments\\\\Assignment-09-mongoose\\\\node_modules\\\\router\\\\lib\\\\layer.js:116:17)\\n    at trimPrefix (E:\\\\MUSTAFA\\\\Cours Web devlopment\\\\Back-End Node.js Route\\\\Assignments\\\\Assignment-09-mongoose\\\\node_modules\\\\router\\\\index.js:340:13)\\n    at E:\\\\MUSTAFA\\\\Cours Web devlopment\\\\Back-End Node.js Route\\\\Assignments\\\\Assignment-09-mongoose\\\\node_modules\\\\router\\\\index.js:297:9\\n    at processParams (E:\\\\MUSTAFA\\\\Cours Web devlopment\\\\Back-End Node.js Route\\\\Assignments\\\\Assignment-09-mongoose\\\\node_modules\\\\router\\\\index.js:582:12)\\n    at next (E:\\\\MUSTAFA\\\\Cours Web devlopment\\\\Back-End Node.js Route\\\\Assignments\\\\Assignment-09-mongoose\\\\node_modules\\\\router\\\\index.js:291:5)\\n    at E:\\\\MUSTAFA\\\\Cours Web devlopment\\\\Back-End Node.js Route\\\\Assignments\\\\Assignment-09-mongoose\\\\node_modules\\\\router\\\\index.js:688:15\\n    at next (E:\\\\MUSTAFA\\\\Cours Web devlopment\\\\Back-End Node.js Route\\\\Assignments\\\\Assignment-09-mongoose\\\\node_modules\\\\router\\\\index.js:276:14)\\n    at next (E:\\\\MUSTAFA\\\\Cours Web devlopment\\\\Back-End Node.js Route\\\\Assignments\\\\Assignment-09-mongoose\\\\node_modules\\\\router\\\\lib\\\\route.js:132:14)\"\n    }\n}"
+            },
+            {
+              "name": "Get nots and user",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"userId\": \"6a2ac898d50c71671384606a\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/notes/note-with-user",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "notes",
+                    "note-with-user"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "936"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"3a8-lqmJH+WYQy1eqRwUvJMP9i5FNHo\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 13 Jun 2026 13:59:51 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": false,\n    \"message\": \"Wrong userId, user not found\",\n    \"error\": {\n        \"name\": \"Error\",\n        \"statusCode\": 404,\n        \"isOperational\": true,\n        \"stack\": \"Error: Wrong userId, user not found\\n    at throwException (file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/utils/response/throw.exceptions.js:4:8)\\n    at getNotesAndUserService (file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/modules/notes/notes.services.js:349:3)\\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\\n    at async file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/modules/notes/notes.controller.js:135:16\\n    at async file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/utils/error-handler/async-handler.js:4:4\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get nots and user aggregation",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"userId\": \"6a2ac898d50c71671384606f\"\r\n    // \"userId\": \"6a29c0cd8d1271878e2b7c86\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/notes/aggregate?title=Note",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "notes",
+                "aggregate"
+              ],
+              "query": [
+                {
+                  "key": "title",
+                  "value": "Note"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get nots and user aggregation",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"userId\": \"6a2ac898d50c71671384606a\"\r\n    // \"userId\": \"6a29c0cd8d1271878e2b7c86\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/notes/aggregate?title=Note",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "notes",
+                    "aggregate"
+                  ],
+                  "query": [
+                    {
+                      "key": "title",
+                      "value": "Note"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "945"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"3b1-imaI3iYU7hIbl5CTDB0UuKI7OjI\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 13 Jun 2026 15:21:04 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": false,\n    \"message\": \"Wrong userId, user not found\",\n    \"error\": {\n        \"name\": \"Error\",\n        \"statusCode\": 404,\n        \"isOperational\": true,\n        \"stack\": \"Error: Wrong userId, user not found\\n    at throwException (file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/utils/response/throw.exceptions.js:4:8)\\n    at getNotesAndUserAggregateService (file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/modules/notes/notes.services.js:370:3)\\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\\n    at async file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/modules/notes/notes.controller.js:151:16\\n    at async file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/utils/error-handler/async-handler.js:4:4\"\n    }\n}"
+            },
+            {
+              "name": "Get nots and user aggregation",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    // \"userId\": \"6a2ac898d50c71671384606f\"\r\n    \"userId\": \"6a29c0cd8d1271878e2b7c86\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/notes/aggregate?title=Note",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "notes",
+                    "aggregate"
+                  ],
+                  "query": [
+                    {
+                      "key": "title",
+                      "value": "Note"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "59"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"3b-bNXeL4kOCucrFC6ip63PosuB4ws\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 13 Jun 2026 15:27:18 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"No result!\",\n    \"data\": [],\n    \"count\": 0\n}"
+            },
+            {
+              "name": "Get nots and user aggregation",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"userId\": \"6a2ac898d50c71671384606f\"\r\n    // \"userId\": \"6a29c0cd8d1271878e2b7c86\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/notes/aggregate?title=Note",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "notes",
+                    "aggregate"
+                  ],
+                  "query": [
+                    {
+                      "key": "title",
+                      "value": "Note"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "423"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"1a7-Fs47mp2cmFE18Z3733E5MCnbQtk\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 13 Jun 2026 15:28:25 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"data\": [\n        {\n            \"_id\": \"6a2b401649ae717213b50442\",\n            \"title\": \"General Title for all notes\",\n            \"content\": \"this content for note1\",\n            \"createdAt\": \"2026-06-11T23:09:10.956Z\",\n            \"user\": {\n                \"name\": \"ali2\",\n                \"email\": \"ali2@gmail.com\"\n            }\n        },\n        {\n            \"_id\": \"6a2b40e184ba83c313b6db2f\",\n            \"title\": \"Note4 replaced!\",\n            \"content\": \"this content for note1 replaced!\",\n            \"createdAt\": \"2026-06-12T00:05:57.553Z\",\n            \"user\": {\n                \"name\": \"ali2\",\n                \"email\": \"ali2@gmail.com\"\n            }\n        }\n    ],\n    \"count\": 2\n}"
+            },
+            {
+              "name": "Get nots and user aggregation",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    // \"userId\": \"6a2ac898d50c71671384606f\"\r\n    // \"userId\": \"6a29c0cd8d1271878e2b7c86\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/notes/aggregate?title=Note",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "notes",
+                    "aggregate"
+                  ],
+                  "query": [
+                    {
+                      "key": "title",
+                      "value": "Note"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "1822"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"71e-vVryv2XcjeuB+yCpzHmafrFBe0M\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 13 Jun 2026 15:28:54 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": false,\n    \"message\": \"Please provide note information, userId.\",\n    \"error\": {\n        \"name\": \"Error\",\n        \"statusCode\": 400,\n        \"isOperational\": true,\n        \"stack\": \"Error: Please provide note information, userId.\\n    at throwException (file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/utils/response/throw.exceptions.js:4:8)\\n    at getNotesAndUserAggregateService (file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/modules/notes/notes.services.js:365:3)\\n    at file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/modules/notes/notes.controller.js:165:22\\n    at file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/utils/error-handler/async-handler.js:4:10\\n    at Layer.handleRequest (E:\\\\MUSTAFA\\\\Cours Web devlopment\\\\Back-End Node.js Route\\\\Assignments\\\\Assignment-09-mongoose\\\\node_modules\\\\router\\\\lib\\\\layer.js:152:17)\\n    at next (E:\\\\MUSTAFA\\\\Cours Web devlopment\\\\Back-End Node.js Route\\\\Assignments\\\\Assignment-09-mongoose\\\\node_modules\\\\router\\\\lib\\\\route.js:157:13)\\n    at Route.dispatch (E:\\\\MUSTAFA\\\\Cours Web devlopment\\\\Back-End Node.js Route\\\\Assignments\\\\Assignment-09-mongoose\\\\node_modules\\\\router\\\\lib\\\\route.js:117:3)\\n    at handle (E:\\\\MUSTAFA\\\\Cours Web devlopment\\\\Back-End Node.js Route\\\\Assignments\\\\Assignment-09-mongoose\\\\node_modules\\\\router\\\\index.js:435:11)\\n    at Layer.handleRequest (E:\\\\MUSTAFA\\\\Cours Web devlopment\\\\Back-End Node.js Route\\\\Assignments\\\\Assignment-09-mongoose\\\\node_modules\\\\router\\\\lib\\\\layer.js:152:17)\\n    at E:\\\\MUSTAFA\\\\Cours Web devlopment\\\\Back-End Node.js Route\\\\Assignments\\\\Assignment-09-mongoose\\\\node_modules\\\\router\\\\index.js:295:15\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Delete All user nots",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"userId\": \"6a2ac898d50c71671384606f\"\r\n    // \"userId\": \"6a29c0cd8d1271878e2b7c86\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/notes/",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "notes",
+                ""
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Delete All user nots",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"userId\": \"6a2ac898d50c71671384606f\"\r\n    // \"userId\": \"6a29c0cd8d1271878e2b7c86\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/notes",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "notes"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "64"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"40-M66hs5dVTLm+Y1mSp+IN9TGbX60\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 13 Jun 2026 15:54:39 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"All User notes deleted successfully\"\n}"
+            },
+            {
+              "name": "Delete All user nots",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    // \"userId\": \"6a2ac898d50c71671384606f\"\r\n    \"userId\": \"6a29c0cd8d1271878e2b7c86\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/notes",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "notes"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "916"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"394-zGRs8lsL3/sr1Cm5xCZGt35WPCw\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 13 Jun 2026 15:55:17 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": false,\n    \"message\": \"User has no notes!\",\n    \"error\": {\n        \"name\": \"Error\",\n        \"statusCode\": 404,\n        \"isOperational\": true,\n        \"stack\": \"Error: User has no notes!\\n    at throwException (file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/utils/response/throw.exceptions.js:4:8)\\n    at deleteUserNotesService (file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/modules/notes/notes.services.js:427:3)\\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\\n    at async file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/modules/notes/notes.controller.js:201:16\\n    at async file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/utils/error-handler/async-handler.js:4:4\"\n    }\n}"
+            },
+            {
+              "name": "Delete All user nots",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    // \"userId\": \"6a2ac898d50c71671384606f\"\r\n    \"userId\": \"6a29c0cd8d1271878e2b7c81\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/notes",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "notes"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "936"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"3a8-6FQXdUqzBcy1oEUHqO3+RuiGhf4\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 13 Jun 2026 15:56:00 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": false,\n    \"message\": \"Wrong userId, user not found\",\n    \"error\": {\n        \"name\": \"Error\",\n        \"statusCode\": 404,\n        \"isOperational\": true,\n        \"stack\": \"Error: Wrong userId, user not found\\n    at throwException (file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/utils/response/throw.exceptions.js:4:8)\\n    at deleteUserNotesService (file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/modules/notes/notes.services.js:421:3)\\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\\n    at async file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/modules/notes/notes.controller.js:201:16\\n    at async file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/utils/error-handler/async-handler.js:4:4\"\n    }\n}"
+            },
+            {
+              "name": "Delete All user nots",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/notes",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "notes"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "1813"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"715-LCfy+nh6bB2XAUcpi3stDebpDLY\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 13 Jun 2026 15:56:09 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": false,\n    \"message\": \"Please provide note information, userId.\",\n    \"error\": {\n        \"name\": \"Error\",\n        \"statusCode\": 400,\n        \"isOperational\": true,\n        \"stack\": \"Error: Please provide note information, userId.\\n    at throwException (file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/utils/response/throw.exceptions.js:4:8)\\n    at deleteUserNotesService (file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/modules/notes/notes.services.js:416:3)\\n    at file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/modules/notes/notes.controller.js:201:22\\n    at file:///E:/MUSTAFA/Cours%20Web%20devlopment/Back-End%20Node.js%20Route/Assignments/Assignment-09-mongoose/src/utils/error-handler/async-handler.js:4:10\\n    at Layer.handleRequest (E:\\\\MUSTAFA\\\\Cours Web devlopment\\\\Back-End Node.js Route\\\\Assignments\\\\Assignment-09-mongoose\\\\node_modules\\\\router\\\\lib\\\\layer.js:152:17)\\n    at next (E:\\\\MUSTAFA\\\\Cours Web devlopment\\\\Back-End Node.js Route\\\\Assignments\\\\Assignment-09-mongoose\\\\node_modules\\\\router\\\\lib\\\\route.js:157:13)\\n    at Route.dispatch (E:\\\\MUSTAFA\\\\Cours Web devlopment\\\\Back-End Node.js Route\\\\Assignments\\\\Assignment-09-mongoose\\\\node_modules\\\\router\\\\lib\\\\route.js:117:3)\\n    at handle (E:\\\\MUSTAFA\\\\Cours Web devlopment\\\\Back-End Node.js Route\\\\Assignments\\\\Assignment-09-mongoose\\\\node_modules\\\\router\\\\index.js:435:11)\\n    at Layer.handleRequest (E:\\\\MUSTAFA\\\\Cours Web devlopment\\\\Back-End Node.js Route\\\\Assignments\\\\Assignment-09-mongoose\\\\node_modules\\\\router\\\\lib\\\\layer.js:152:17)\\n    at E:\\\\MUSTAFA\\\\Cours Web devlopment\\\\Back-End Node.js Route\\\\Assignments\\\\Assignment-09-mongoose\\\\node_modules\\\\router\\\\index.js:295:15\"\n    }\n}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
