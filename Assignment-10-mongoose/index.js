@@ -5,8 +5,6 @@ import { configEnv } from './src/configs/env.js';
 const app = express();
 const port = configEnv.port;
 
-
-
 await bootstrap(app, express);
 
 // Handle synchronous uncaught exceptions (e.g., using an undefined variable)
@@ -16,7 +14,7 @@ process.on('uncaughtException', (err) => {
 	process.exit(1);
 });
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+app.listen(port, () => console.log(`✔ App listening on port ${port}`));
 
 // Handle asynchronous unhandled rejections (e.g., DB connection failure)
 process.on('unhandledRejection', (err) => {
