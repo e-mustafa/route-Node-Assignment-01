@@ -116,14 +116,14 @@ router.get(
 	asyncHandler(async (req, res) => {
 		const { userId } = req.body || {};
 		const { page, limit, search } = req.query || {};
-		const data = await getPaginatedNotesService({
+		const { data = [], metadata = {} } = await getPaginatedNotesService({
 			userId,
 			page,
 			limit,
 			search,
 		});
 
-		responseSuccess({ res, data });
+		responseSuccess({ res, data, more: { count: data?.length || 0, metadata } });
 		// return res.status(200).json({ success: true, message: 'Note deleted successfully' });
 	}),
 );
@@ -137,8 +137,7 @@ router.get(
 
 		const data = await getNoteByContentService(content, userId);
 
-		if (!data)
-			return responseSuccess({ res, message: 'No Result!', data: {} });
+		if (!data) return responseSuccess({ res, message: 'No Result!', data: {} });
 
 		responseSuccess({ res, data });
 
@@ -197,12 +196,12 @@ router.get(
 router.delete(
 	routes.deleteNotes,
 	asyncHandler(async (req, res) => {
-		const { userId } = req.body || {}
-		const data = await deleteUserNotesService(userId)
+		const { userId } = req.body || {};
+		const data = await deleteUserNotesService(userId);
 
-		console.log('data', data.deletedCount)
+		console.log('data', data.deletedCount);
 
-		responseSuccess({res, message: 'All User notes deleted successfully'})
+		responseSuccess({ res, message: 'All User notes deleted successfully' });
 	}),
 );
 export default router;
